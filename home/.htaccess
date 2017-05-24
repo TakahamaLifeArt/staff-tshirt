@@ -1,0 +1,20 @@
+Options -Indexes
+AddType application/x-httpd-php .php .htm .html
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^staff-tshirt\.com
+RewriteRule (.*) http://www.staff-tshirt.com/$1 [R=301,L]
+
+RewriteEngine on
+RewriteCond %{THE_REQUEST} ^.*/index.html
+RewriteRule ^(.*)index.html$ http://www.staff-tshirt.com/$1 [R=301,L]
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^/m/
+RewriteCond %{HTTP_USER_AGENT} (iPhone|Android.*Mobile|Windows.*Phone) [NC]
+RewriteCond %{QUERY_STRING} !mode=pc
+RewriteRule ^(.*)$ http://www.staff-tshirt.com/ [R=302]
+</IfModule>
+
+
