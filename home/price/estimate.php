@@ -37,6 +37,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<!-- OGP -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="../js/jquery.flexnav.js"></script>
+	<script src="/common2/js/tlalib.js"></script>
 	<script type="text/javascript">
 		var _IMG_PSS = "<?php echo _IMG_PSS;?>";
 	</script>

@@ -7,10 +7,6 @@
 $(function(){
 	
 	jQuery.extend({
-		TLA: {
-			'api':'http://takahamalifeart.com/v1/api',
-			'site':'6'
-		},
 		init: function(){
 			$('#color_wrap input[name=color]').val(['0']);
 			$.setBody(1);
@@ -188,11 +184,12 @@ $(function(){
 		*	アイテムコード、枚数、インク色数、プリント位置の配列　[itemcode, amount, ink, pos][...]
 		*/
 			var vol = $('#order_amount').val();
-			var pos_id = 0;
+			var pos_count = 0;
 			var itemid = [];
 			var amount = [];
 			var pos = [];
 			var ink = [];
+			var size = [];
 			var option = [];
 			var optionValue = $('#color_wrap input[name=color]:checked').val();
 			var ppID = $('#boxwrap .check_body:checked').val();	// 絵型ID
@@ -200,26 +197,33 @@ $(function(){
 			
 			// デザインの数
 			$('#pos_wrap ul li').each(function(){
-				var ink_count = $(this).find('select').val();
+				var self = $(this);
+				var select = self.find('select');
+				var idx = select.attr('class').split('_')[1];
+				var ink_count = select.val();
+				var pos_name = self.find('posname_'+idx).text();
 				if(ink_count==0) return true;		// continue
 				for(var itemId in $.items.hash){
 					if($.items.hash[itemId][5]!=ppID) continue;
 					itemid.push(itemId);
 					amount.push(vol);
-					pos.push(pos_id);
+					pos.push(pos_name);
 					ink.push(ink_count);
+					size.push(0);
 					option.push(optionValue);
 				}
-				pos_id++;
+				pos_count++;
 			});
 			
-			if(pos_id==0){
+			$.resetResult();
+			
+			if(pos_count==0){
 				$('#resultList').html('');
 				alert('プリントする場所とデザインの色数を指定してください。');
 				return;
 			}
 			
-			var args = {'sheetsize':'1', 'act':'printfeelist', 'output':'jsonp', 'itemid':itemid, 'amount':amount, 'pos':pos, 'ink':ink, 'option':option};
+			var args = {'sheetsize':'1', 'act':'printfeelist', 'show_site':$.TLA.show_site, 'output':'jsonp', 'itemid':itemid, 'amount':amount, 'pos':pos, 'ink':ink, 'size':size, 'option':option};
 			$.getJSON($.TLA.api+'?callback=?', args, function(r){
 				// 見積り額と表示順を設定
 				var costIndex = 2;	// 白色
@@ -259,7 +263,7 @@ $(function(){
 					var base = val.base-0;
 					var tax = Math.floor( base * (val.tax/100) );
 					var result = Math.floor( base * (1+val.tax/100) );
-					var perone = $.addFigure(Math.ceil(result/val.volume));
+					var perone = $.addFigure(Math.ceil(result/vol));
 					var itemHash = $.getStorage("itemhash", itemcode);
 					ranking = "";
 					num++;
@@ -293,7 +297,7 @@ $(function(){
 					base = r2[key].base-0;
 					tax = Math.floor( base * (r2[key].tax/100) );
 					result = Math.floor( base * (1+r2[key].tax/100) );
-					perone = $.addFigure(Math.ceil(result/r2[key].volume));
+					perone = $.addFigure(Math.ceil(result/vol));
 					itemHash = $.getStorage("itemhash", itemcode);
 					tab2[idx] += '<div class="item clearfix">';
 						tab2[idx] += '<div class="left-tab">';

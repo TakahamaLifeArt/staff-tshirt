@@ -6,6 +6,7 @@
 *	log
 *	2016-10-25	人気商品の指定方法を変更
 *				staff-tshirt用に機能変更
+*	2017-05-25	プリント代計算の仕様変更
 */
 
 $(function(){
@@ -451,8 +452,8 @@ $(function(){
 		};
 		var val = $(this).is(':checked')? 1: 0;
 		if(val==1){
-			if($('#pos_wrap .inkbox select').length>0){
-				$('#pos_wrap .inkbox select').each( function(){
+			if($('#pos_wrap .inkbox .ink').length>0){
+				$('#pos_wrap .inkbox .ink').each( function(){
 					$(this).val("0").prev("span").text("選択してください");
 				});
 			}
@@ -474,7 +475,19 @@ $(function(){
 				}
 			);
 		}
-	});	
+	});
+	
+	/********************************
+	*	刺繍を希望の場合のテキストエリア
+	*/
+	$('#note_printmethod').focusout( function(){
+		var key = $(this).attr('name');
+		var val = $(this).val();
+		var postData = {'act':'update', 'mode':'customer'};
+		postData[key] = val;
+		$.ajax({url:'/php_libs/orders.php', async:false, type:'POST', dataType:'text', data:postData});
+	});
+	
 	
 	/*---------- STEP 4 ----------*/
 	
@@ -673,7 +686,7 @@ $(function(){
 	/********************************
 	*	デザイン掲載のチェック
 	*/
-	$(':radio[name="publish"]', '#userinfo').change( function(){
+	$(':radio[name="publish"]', '#step5').change( function(){
 		var key = $(this).attr('name');
 		var val = $(this).val();
 		var postData = {'act':'update', 'mode':'options', 'key':key, 'val':val};
@@ -693,32 +706,33 @@ $(function(){
 	*	ログインボタン
 	*/
 	$('#member_login').on('click', function(){
-			if(!$.check_email($('#login_input_email').val())){
-				return;
-			}
-			var required = [];
-			if($('#login_input_email').val().trim()=='') required.push('<li>メールアドレス</li>');
-			if($('#login_input_pass').val().trim()=='') required.push('<li>パスワード</li>');
-			var required_list = '<ul class="msg">'+required.toString().replace(/,/g,'')+'</ul>';
-			if(required.length>0){
-				$.msgbox("必須項目の入力をご確認ください。<br />"+required_list);
-				return;
-			}
+		var email = $('#login_input_email').val().trim();
+		var pass = $('#login_input_pass').val().trim();
+		if(!$.check_email(email)){
+			return;
+		}
+		var required = [];
+		if(email=='') required.push('<li>メールアドレス</li>');
+		if(pass=='') required.push('<li>パスワード</li>');
+		var required_list = '<ul class="msg">'+required.toString().replace(/,/g,'')+'</ul>';
+		if(required.length>0){
+			$.msgbox("必須項目の入力をご確認ください。<br />"+required_list);
+			return;
+		}
 
-			//セッションにユーザーを保存
-			//画面を再表示
-			var args = {"email":$('#login_input_email').val(),"pass": $('#login_input_pass').val()};
-			$.ajax({url:'user_login.php', type:'get', dataType:'json', async:false, data:{'login':'true', 'email':$('#login_input_email').val(),'pass': $('#login_input_pass').val(), 'reg_site':'6'}, 
-				success: function(r){
-					if(r.length!=0){
-						if(typeof r.id=='undefined') {
-							$.msgbox(r);
-						} else {
-							$.setCustomer2();
-						}
+		//セッションにユーザーを保存
+		//画面を再表示
+		$.ajax({url:'user_login.php', type:'get', dataType:'json', async:false, data:{'login':'true', 'email':email,'pass':pass}, 
+			success: function(r){
+				if(r.length!=0){
+					if(typeof r.id=='undefined') {
+						$.msgbox(r);
+					} else {
+						$.setCustomer2();
 					}
 				}
-			});
+			}
+		});
 	});
 	
 	/*---------- STEP 6 ----------*/
@@ -1490,13 +1504,21 @@ $(function(){
 						var tbody = tbl.children('tbody');
 						var base = tbl.children('caption').text();
 						if(img.is('.cur')){
-							img.attr('src', src).removeClass('cur');
-							tbody.find('tr.pos-'+img.attr('class')).remove();
+//							img.attr('src', src).removeClass('cur');
+//							tbody.find('tr.pos-'+img.attr('class')).remove();
 						}else{
+							var cur = img.siblings('.cur');
+							if (cur.length) {
+								cur.attr('src',cur.attr('src').replace(/_on.png/,'.png')).removeClass('cur');
+								tbody.find('tr.pos-'+cur.attr('class')).remove();
+							}
 							var posname = img.attr('alt');
 							var tr = '<tr class="pos-'+img.attr('class')+'">';
 							tr += '<th>'+posname+'</th>';
-							tr += '<td><select><option value="0" selected="selected">選択してください</option>';
+							tr += '<td><select class="areasize">';
+							tr += '<option value="0" selected="selected">大</option><option value="1">中</option><option value="2">小</option>';
+							tr += '</select class=""ink></td>';
+							tr += '<td><select class="ink"><option value="0" selected="selected">選択してください</option>';
 							tr += '<option value="1">1色</option><option value="2">2色</option><option value="3">3色</option>';
 							tr += '<option value="9">4色以上</option></select></td>';
 							tr += '</tr>';
@@ -1532,8 +1554,8 @@ $(function(){
 		*	インク指定の確認
 		*/
 			var isInks = false;
-			if($('#pos_wrap .inkbox select').length>0 && !$('#noprint').prop('checked')){
-				$('#pos_wrap .inkbox select').each( function(){
+			if($('#pos_wrap .inkbox .ink').length>0 && !$('#noprint').prop('checked')){
+				$('#pos_wrap .inkbox .ink').each( function(){
 					if($(this).val()!=0){
 						isInks = true;
 						return false;	// break;
@@ -1636,6 +1658,7 @@ $(function(){
 			var cat_type = [];
 			var item_type = [];
 			var area_key = [];
+			var area_size = [];
 			var ink = [];
 			var attach = [];
 			var isResult = false;
@@ -1644,17 +1667,19 @@ $(function(){
 			box.each( function(){
 				var base_name = $('.inkbox table caption', this).text();
 				$('.inkbox table tbody tr', this).each( function(){
+					var my = $(this);
 					base.push(base_name);
-					posname.push( $(this).children('th:first').text() );
+					posname.push( my.children('th:first').text() );
 					if(posid!=46 && noprint==0){
-						ink.push( $(this).find('select').val() );
-						poskey.push( $(this).attr("class").split("-")[1] );
-
+						ink.push( my.find('.ink').val() );
+						area_size.push( my.find('.areasize').val() );
+						poskey.push( my.attr("class").split("-")[1] );
 					}else{
-						ink.push( 0 );
+						ink.push(0);
+						area_size.push(0);
 						poskey.push("");
 					}
-					$tfoot = $(this).parent().siblings("tfoot").find("tr:first");
+					var $tfoot = my.parent().siblings("tfoot").find("tr:first");
 					cat_type.push( $tfoot.find("td:first").text() );
 					item_type.push( $tfoot.find("td:eq(1)").text() );
 					area_key.push( $tfoot.find("td:last").text() );
@@ -1662,7 +1687,7 @@ $(function(){
 			});
 			
 			$.ajax({url:'/php_libs/orders.php', async:false, type:'POST', dataType:'json', 
-				data:{'act':'update','mode':'design', 'posid':posid, 'base':base,'poskey':poskey, 'posname':posname, 'ink':ink, 'categorytype':cat_type,'itemtype':item_type, 'areakey':area_key,'attachname':attach}, success: function(r){
+				data:{'act':'update','mode':'design', 'posid':posid, 'base':base, 'poskey':poskey, 'areasize':area_size, 'posname':posname, 'ink':ink, 'categorytype':cat_type, 'itemtype':item_type, 'areakey':area_key}, success: function(r){
 					if(r.length!=0){
 						isResult = r;
 					}
@@ -1697,12 +1722,20 @@ $(function(){
 			$('#estimation_wrap .itemsum').text($.addFigure(r.itemprice));
 			$('#estimation_wrap .printfee').text($.addFigure(r.printprice));
 			$('#estimation_wrap .totamount').text(r.amount);
-			
-			var printing = '';	// プリント位置と色数
+			var sizeName = ['大', '中', '小'];
+			var printName = {'silk':'シルク', 'digit':'転写', 'inkjet':'インクジェット'};
+			var print_size = '';
+			var print_pos = '';
+			var ink_count = '';
 			for(var i=0; i<r.design.length; i++){
-				printing += '<p>'+r.design[i]['pos']+': '+r.design[i]['ink']+'</p>';
+				var ink = r.design[i]['ink']==9? '4色以上': r.design[i]['ink']+'色';
+				print_size += '<p>'+sizeName[r.design[i]['size']]+'</p>';
+				print_pos += '<p>'+r.design[i]['pos']+'</p>';
+				ink_count += '<p>'+ink+'</p>';
 			}
-			$('#estimation_wrap .printing').html(printing);
+			$('#estimation_wrap .print_size').html(print_size);
+			$('#estimation_wrap .print_pos').html(print_pos);
+			$('#estimation_wrap .ink_count').html(ink_count);
 			
 			$.updateOptions(r);
 		},
@@ -1725,7 +1758,7 @@ $(function(){
 			$('#estimation_wrap .codfee').text(r.options.codfee);
 			$('#estimation_wrap .conbifee').text(r.options.conbifee);
 			$('#estimation_wrap .discountfee').text($.addFigure(r.options.discount));
-			$('#estimation_wrap .package').text(r.options.pack);
+			$('#estimation_wrap .package').text(r.options.packfee);
 			$('#estimation_wrap .expressfee').text($.addFigure(r.options.expressfee));
 			
 			// 割引種類
@@ -1738,15 +1771,31 @@ $(function(){
 			// 製作日数不足
 			if(r.options.expressError!=""){
 				$.msgbox(r.options.expressError+"\nご希望納期をご確認ください。");
-				$('#express_notice ins').text(r.options.expressError).closest('p').show();
+				$('#express_notice ins').text("ご希望納期をご確認ください。").closest('p').show();
+				$('#deliveryday').val("");
 			}else{
 			// 特急料金の種類
 				spec = '';
 				if(r.options.expressfee!=0){
 					spec = r.options['expressInfo'];
 					$('#express_notice ins').text('特急料金がかかります。（'+spec+'）').closest('p').show();
+					
+					// 翌日仕上げの場合に袋詰めを選択不可にする
+					if (spec=='翌日仕上げ') {
+						var isPack = $(':radio[name=pack]:checked', '#option_table').val();
+						if (isPack==0) {
+							$(':radio[name=pack]', '#option_table').prop('disabled', true);
+						} else if (r.options.packfee==0) {
+							$(':radio[name=pack]', '#option_table').val([0]).prop('disabled', true);
+						} else {
+							$(':radio[name=pack]', '#option_table').prop('disabled', false);
+						}
+					} else {
+						$(':radio[name=pack]', '#option_table').prop('disabled', false);
+					}
 				}else{
 					$('#express_notice ins').text('').closest('p').hide();
+					$(':radio[name=pack]', '#option_table').prop('disabled', false);
 				}
 				$('.expressinfo', '#estimation_wrap').text(spec);
 			}
@@ -1791,14 +1840,36 @@ $(function(){
 		*				['comment']
 		*				['repeater']
 		*/
-		
-			if(!$.check_email($('#email').val())){
+			var email = $('#email').val().trim();
+			if (!$.check_email(email)) {
+				return;
+			}
+			
+			// 新規ユーザーの場合、ユーザー存在チェック
+			var isExistUser = false;
+			if($('#pass').is(':visible')) {
+//				$.ajax({url:'/php_libs/orders.php', type:'get', dataType:'json', async:false, data:{'act':'checkemail', 'email':$("#email").val(), 'reg_site':'6'}, 
+				$.ajax({url:'/php_libs/orders.php', type:'get', dataType:'json', async:false, data:{'act':'checkemail', 'args':[email]}, 
+					success: function(r){
+						if(r.length!=0){
+							var msg = '<h1>登録済みのメールアドレスです！</h1>';
+							msg += '<p>E-mail：　'+email+'</p>';
+							msg += '<p>ログインしてください。</p>';
+							msg += '<p><a href="/user/resend_pass.php" target="_brank">パスワードの再発行はこちらへ</a></p>';
+							$.msgbox(msg);
+							isExistUser = true;
+							return;
+						}
+					}
+				});
+			}
+			if(isExistUser) {
 				return;
 			}
 			
 			var required = [];
 			if($('#customername').val().trim()=='') required.push('<li>お名前</li>');
-			if($('#email').val().trim()=='') required.push('<li>メールアドレス</li>');
+			if(email=='') required.push('<li>メールアドレス</li>');
 			if($('#pass').is(':visible') && $('#pass').val().trim()=='') required.push('<li>パスワード</li>');
 			if($('#tel').val().trim()=='') required.push('<li>お電話番号</li>');
 			if($('#addr1').val().trim()=='') required.push('<li>ご住所</li>');
@@ -1814,25 +1885,6 @@ $(function(){
 				return;
 			}
 			
-			// 新規ユーザーの場合、ユーザー存在チェック
-			var isExistUser = false;
-			if($('#pass').is(':visible')) {
-				$.ajax({url:'/php_libs/orders.php', type:'get', dataType:'json', async:false, data:{'act':'checkemail', 'email':$("#email").val(), 'reg_site':'6'}, 
-					success: function(r){
-						if(r.length!=0){
-							var msg = '<h1>登録済みのメールアドレスです！</h1>';
-							msg += '<p>E-mail：　'+$("#email").val()+'</p>';
-							msg += '<p>ログインしてください。</p>';
-							$.msgbox(msg);
-							isExistUser = true;
-							return;
-						}
-					}
-				});
-			}
-			if(isExistUser) {
-				return;
-			}
 			// ユーザー情報の登録
 			$.updateUser();
 			
@@ -1893,11 +1945,11 @@ $(function(){
 					tr += '<tr><td colspan="4">プリント代</td><td class="ar">'+$.addFigure(option.printprice)+'<span>円</span></td></tr>';
 					
 					var optionfee = 0;
-					var optname = {'discount':'割引', 'carriage':'送料', 'codfee':'代引手数料', 'conbifee':'コンビニ手数料','pack':'袋詰代', 'expressfee':'特急料金'};
+					var optname = {'discount':'割引', 'carriage':'送料', 'codfee':'代引手数料', 'conbifee':'コンビニ手数料','packfee':'袋詰代', 'expressfee':'特急料金'};
 					var pack = '希望しない';
-					if(r.option.packvalue==1){
+					if(r.option.pack==1){
 						pack = '希望する';
-					}else if(r.option.packvalue==2){
+					}else if(r.option.pack==2){
 						pack = '袋のみ';
 					}
 					for(var m in option){
@@ -1912,7 +1964,7 @@ $(function(){
 							tr += '<tr><td colspan="4">'+optname[m]+'</td><td class="ar">'+option[m]+'<span>円</span></td>';
 						}else if(m=='conbifee' && option[m]!=0){
 							tr += '<tr><td colspan="4">'+optname[m]+'</td><td class="ar">'+option[m]+'<span>円</span></td>';
-						}else if(m=='pack'){
+						}else if(m=='packfee'){
 							tr += '<tr><td colspan="4">'+optname[m]+'<span>（'+pack+'）</span></td><td class="ar"><ins id="conf_pack">'+$.addFigure(option[m])+'</ind><span>円</span></td>';
 						}else if(m=='expressfee'&& option['expressInfo']!=''){
 							tr += '<tr><td colspan="4">'+optname[m]+'<span>（'+option['expressInfo']+'）</span></td><td class="ar"><ins id="conf_expressfee">'+$.addFigure(option[m])+'</ind><span>円</span></td>';
@@ -1945,7 +1997,7 @@ $(function(){
 					}
 					$('#conf_attach').html(attachfiles);
 					
-					
+					$('#conf_note_design').html('');
 					for(var u in r.user){
 						if(u=='deli'){
 							continue;
@@ -1962,6 +2014,14 @@ $(function(){
 							$('#conf_'+u).html(r.user[tmp]);
 						}else if(u=='organization' && r.user.deli!=1){
 							$('#conf_'+u).html(r.user.customername);
+						}else if (u=='note_printmethod' || u=='note_design') {
+							var txt = $('#conf_note_design').html();
+							if (txt=="") {
+								$('#conf_note_design').html(r.user[u]);
+							} else {
+								txt += "<br>"+r.user[u];
+								$('#conf_note_design').html(txt);
+							}
 						}else{
 							$('#conf_'+u).html(r.user[u]);
 						}
@@ -1984,6 +2044,7 @@ $(function(){
 					var tbody = '';
 					var curitemname = '';
 					var inks = 0;
+					var sizeName = ['大', '中', '小'];
 					for(var i=0; i<r.design.length; i++){
 						if(curitemname!=r.design[i]['itemname']){
 							if(curitemname!='' && inks==0){
@@ -1994,8 +2055,9 @@ $(function(){
 						if(r.design[i]['ink']==0) continue;
 						tbody += '<tr>';
 						tbody += '<th>'+r.design[i]['itemname']+'</th>';
-						tbody += '<td>'+r.design[i]['posname']+'</td>';
-						tbody += '<td>'+r.design[i]['ink']+'</td>';
+						tbody += '<td class="ac">'+r.design[i]['posname']+'</td>';
+						tbody += '<td class="ac">'+sizeName[r.design[i]['areasize']]+'</td>';
+						tbody += '<td class="ac">'+r.design[i]['ink']+'</td>';
 						tbody += '</tr>';
 						
 						inks += r.design[i]['ink'];

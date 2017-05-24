@@ -30,6 +30,8 @@
 *												   		 ['categorytype']
 *												   		 ['itemtype']
 *														 ['areakey']
+*														 ['areasize']
+*														 ['printing']
 *
 *	['attach'][0]['img']['file']
 *						['name']
@@ -55,9 +57,10 @@
 *				['comment']
 *				['note_design']		デザインの備考
 *				['note_printcolor'] インク色指定
+*				['note_printmethod'] 刺繍を希望
 *				['repeater']		リピーター　1:初めて、2:以前に注文あり
 *
-*	['options']['pack']				0, 1
+*	['options']['pack']				0, 1, 2
 *			   ['blog']				0, 3
 *			   ['student']			0, 3, 5, 7
 *			   ['illust']			0, 1
@@ -155,6 +158,7 @@ class Orders Extends Conndb {
 *				['comment']
 *				['note_design']		デザインの備考
 *				['note_printcolor'] インク色指定
+*				['note_printmethod'] 刺繍を希望
 *				['repeater']		リピーター　1:初めて、2:以前に注文あり
 
 */
@@ -309,7 +313,7 @@ $orderMail = new Ordermail();
 		
 		if($mode=='design'){
 		/*
-		*	プリント位置のデザイン情報の更新
+		*	プリント位置のデザイン情報の更新、base（前、後、横）に対して１箇所
 		*	@base			array
 		*	@posid
 		*	@poskey			array
@@ -317,6 +321,8 @@ $orderMail = new Ordermail();
 		*	@ink			array
 		*	@itemtype		array
 		*	@areakey		array
+		*	@areasize		array
+		*	@printing		array
 		*
 		*	['items'][category_id]['item'][id]['posid']
 		*									  ['design'][base][0]['posname']
@@ -325,27 +331,13 @@ $orderMail = new Ordermail();
 		*												   		 ['categorytype']
 		*												   		 ['itemtype']
 		*														 ['areakey']
+		*														 ['areasize']
+		*														 ['printing']
 		*
 		*
 		*	return			{'itemprice':商品代, 'amount':合計枚数, 'printprice':プリント代合計, 'total':見積合計,
 		*					 'options': {'discount':割引, 'carriage':送料, 'codfee':代引手数料, pack:袋詰代}}
 		*/
-			/*
-			if($_SESSION['orders']['options']['noprint']==1){
-			// 全アイテムのプリント情報を初期化
-				foreach($_SESSION['orders']['items'] as $catid=>$v1){
-					foreach($v1['item'] as $itemid=>$v2){
-						foreach ($v2['design'] as $base => $value) {
-							$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base][0]['ink'] = 0;
-							for($i=1; $i<count($value); $i++){
-								unset($_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base][$i]);
-							}
-						}
-					}
-				}
-			}else{
-			 */
-			  
 			$base = $_REQUEST['base'];
 			$posid = $_REQUEST['posid'];
 			
@@ -354,21 +346,23 @@ $orderMail = new Ordermail();
 					if($v2['posid']!=$posid) continue;
 					$a=0;
 					for($i=0; $i<count($base); $i++){
-						if($cur_base!=$base[$i]){
-							$cur_base = $base[$i];
-							if(isset($v2['design'][$cur_base])) $_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$cur_base] = array();
-							$a=0;
+//						if($cur_base!=$base[$i]){
+//							$cur_base = $base[$i];
+//							if(isset($v2['design'][$cur_base])) $_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$cur_base] = array();
+//							$a=0;
+//						}
+						$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base[$i]] = array();
+						if ($_REQUEST['ink'][$i]!=0) {
+							$tmp = array('poskey'=>$_REQUEST['poskey'][$i],
+										 'posname'=>$_REQUEST['posname'][$i],
+										 'ink'=>$_REQUEST['ink'][$i],
+										 'categorytype'=>$_REQUEST['categorytype'][$i],
+										 'itemtype'=>$_REQUEST['itemtype'][$i],
+										 'areakey'=>$_REQUEST['areakey'][$i],
+										 'areasize'=>$_REQUEST['areasize'][$i],
+										);
+							$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base[$i]][$a] = $tmp;
 						}
-						
-						$tmp = array('poskey'=>$_REQUEST['poskey'][$i],
-									 'posname'=>$_REQUEST['posname'][$i],
-									 'ink'=>$_REQUEST['ink'][$i],
-									 'categorytype'=>$_REQUEST['categorytype'][$i],
-									 'itemtype'=>$_REQUEST['itemtype'][$i],
-									 'areakey'=>$_REQUEST['areakey'][$i]
-									);
-						$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$cur_base][$a] = $tmp;
-						$a++;
 					}
 				}
 			}
@@ -378,6 +372,7 @@ $orderMail = new Ordermail();
 			/*
 			*	オプションの未設定項目を初期化
 			*	['options']['pack']				0, 1
+			*			   ['packfee']			袋詰め代
 			*			   ['blog']				0, 3
 			*			   ['student']			0, 3, 5, 7
 			*			   ['illust']			0, 1
@@ -393,6 +388,7 @@ $orderMail = new Ordermail();
 			*			   ['noprint']			0:プリントあり(default)		1:プリントなし
 			*/
 			$hash = array('pack'=>0,
+						  'packfee'=>0,
 						  'blog'=>0,
 						  'student'=>0,
 						  'illust'=>0,
@@ -426,7 +422,8 @@ $orderMail = new Ordermail();
 		*	@key
 		*	@val
 		*
-		*	['options']['pack']				0, 1
+		*	['options']['pack']				0, 1, 2
+		*			   ['packfee']			袋詰め代
 		*			   ['blog']				0, 3
 		*			   ['student']			0, 3, 5, 7
 		*			   ['illust']			0, 1
@@ -471,6 +468,7 @@ $orderMail = new Ordermail();
 		*				['comment']
 		*				['note_design']		デザインの備考
 		*				['note_printcolor'] インク色指定
+		*				['note_printmethod'] 刺繍を希望
 		*				['repeater']		弊社ご利用につて
 		*/
 		
@@ -698,6 +696,8 @@ $orderMail = new Ordermail();
 		*												   		 ['categorytype']
 		*												   		 ['itemtype']
 		*														 ['areakey']
+		*														 ['areasize']
+		*														 ['printing']
 		*/
 		
 		
@@ -758,6 +758,8 @@ $orderMail = new Ordermail();
 	*												   		 ['categorytype']
 	*												   		 ['itemtype']
 	*														 ['areakey']
+	*														 ['areasize']
+	*														 ['printing']
 	*
 	*	return		 {'itemprice':商品代, 'amount':合計枚数, 'printprice':プリント代合計, 'total':見積合計,
 	*				  'options': {'discount':割引, 'carriage':送料, 'codfee':代引手数料, pack:袋詰代},
@@ -831,9 +833,13 @@ $orderMail = new Ordermail();
 		$_SESSION['orders']['sum']['amount'] = $data['amount'];
 		$_SESSION['orders']['sum']['printprice'] = $print['printprice'];
 		$data['printprice'] = $print['printprice'];
+		$data['printing'] = $print['printing'];
 		$data['design'] = $print['design'];
+		$data['detail'] = $print['detail'];
 		$data['options'] = $this->reqOptionfee();
 		$data['total'] = $data['itemprice'] + $data['printprice'] + $data['options']['optionfee'];
+		
+		$data['inkjet'] = $print['inkjet'];
 		return $data;
 	}
 	
@@ -871,41 +877,43 @@ $orderMail = new Ordermail();
 	*												   		 ['categorytype']
 	*												   		 ['itemtype']
 	*														 ['areakey']
+	*														 ['areasize']
+	*														 ['printing']
 	*	@sheetsize		転写のデザインサイズ　default: 1
 	*
 	*	return			{'printprice':プリント代, 'design':['インク色数','プリント位置名']}
 	*/	
 	public function reqPrintfee($sheetsize='1'){
 		$args = array();
-		if($_SESSION['orders']['options']['noprint']==1){
-			return array('printprice'=>0, 'design'=>$args);
-		}
-		foreach($_SESSION['orders']['items'] as $catid=>$val){
-			foreach($val['item'] as $itemid=>$val2){
-				
-				$design = array();
-				foreach($val2['design'] as $base=>$val3){
-					for($i=0; $i<count($val3); $i++){
-						if(!empty($val3[$i]['ink'])){
-							if($val3[$i]['ink']==9) $ink = '4 色以上';
-							else $ink = $val3[$i]['ink'].' 色';
-							
-							$design[] = array($ink, $val3[$i]['posname']);
+		if(!empty($_SESSION['orders']['items'])){
+			foreach($_SESSION['orders']['items'] as $catid=>$val){
+				foreach($val['item'] as $itemid=>$val2){
+
+					$design = array();
+					foreach($val2['design'] as $base=>$val3){
+						for($i=0; $i<count($val3); $i++){
+							if(!empty($val3[$i]['ink'])){
+								$design[] = array($val3[$i]['ink'], $val3[$i]['posname'], $val3[$i]['areasize']);
+							}
 						}
 					}
-				}
-				
-				$volume = 0;
-				foreach($val2['color'] as $colorcode=>$val4){
-					foreach($val4['size'] as $sizeid=>$val5){
-						$volume += $val5['amount'];
+
+					$option = array();
+					$volume = 0;
+					foreach($val2['color'] as $colorcode=>$val4){
+						$idx = $val4['name']!='ホワイト'? 1: 0;
+						if(! array_key_exists($idx, $option)) $option[$idx] = 0;
+						foreach($val4['size'] as $sizeid=>$val5){
+							$option[$idx] += $val5['amount'];
+							$volume += $val5['amount'];
+						}
 					}
+
+					for($i=0; $i<count($design); $i++){
+						$args[] = array('itemid'=>$itemid, 'amount'=>$volume, 'ink'=>$design[$i][0], 'pos'=>$design[$i][1], 'size'=>$design[$i][2], 'option'=>$option);
+					}
+
 				}
-				
-				for($i=0; $i<count($design); $i++){
-					$args[] = array('itemid'=>$itemid, 'amount'=>$volume, 'ink'=>$design[$i][0], 'pos'=>$design[$i][1], 'option'=>$option);
-				}
-				
 			}
 		}
 		
@@ -914,6 +922,20 @@ $orderMail = new Ordermail();
 		}else{
 			$res = parent::printfee($args);
 			$data = array('printprice'=>$res['printfee'], 'design'=>$args);
+			
+			// 箇所毎のプリント方法を設定
+			$items = $_SESSION['orders']['items'];
+			foreach ($items as $catid => $v1) {
+				foreach ($v1['item'] as $itemid => $v2) {
+					foreach ($v2['design'] as $base => $a2) {
+						for ($i=0; $i<count($a2); $i++) {
+							$key = $a2[$i]['posname'].'-'.$a2[$i]['areasize'].'-'.$a2[$i]['ink'];
+							$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base][$i]['printing'] = key($res['printing'][$key]);
+						}
+					}
+					unset($a2);
+				}
+			}
 		}
 		
 		return $data;
@@ -940,7 +962,7 @@ $orderMail = new Ordermail();
 	*/
 	public function reqOptionfee(){
 		$p1 = $_SESSION['orders']['sum']['itemprice'] + $_SESSION['orders']['sum']['printprice'];
-		$opt = $_SESSION['orders']['options'];
+		$opt =& $_SESSION['orders']['options'];
 		$discountname = array();;
 		$discount_ratio = 0;
 		
@@ -974,53 +996,62 @@ $orderMail = new Ordermail();
 		}
 		
 		$options['discountname'] = $discountname;
-		//$options['pack'] = empty($opt['pack'])? 0: $_SESSION['orders']['sum']['amount']*_PACK_FEE;
-		if(empty($opt['pack'])){
-			$options['pack'] = 0;
-		}else if($opt['pack'] == 1){
-			$options['pack'] = $_SESSION['orders']['sum']['amount']*_PACK_FEE;
-		}else{
-			$options['pack'] = $_SESSION['orders']['sum']['amount']*_NO_PACK_FEE;
-		}
-		$p2 = $p1 + $options['discount']+$options['pack'];
-		$options['carriage'] = ($p2<30000 && $p2>0)? 700: 0;
-		$options['codfee'] = ($opt['payment']=='1')? 800: 0;
-		$options['conbifee'] = ($opt['payment']=='4')? 800: 0;
+		
 		$options['expressfee'] = 0;
 		$options['expressError'] = '';
 		$options['expressInfo'] = '';
 		if(!empty($opt['deliveryday'])){
-
-//			$d = explode('/', $opt['deliveryday']);
 			$d = preg_split('/[\/-]/', $opt['deliveryday']);
 			$time_stamp = mktime(0, 0, 0, $d[1], $d[2], $d[0]);
 			$workday = $this->getWorkDay($time_stamp);
-			if($options['pack']>0 && $_SESSION['orders']['sum']['amount']>9){
+			if($opt['pack']==1 && $_SESSION['orders']['sum']['amount']>9){
+				$isPack = true;
+			} else {
+				$isPack = false;
+			}
+
+			if ($workday<1 || ($workday==1 && $isPack)) {
+				$options['expressError'] = '製作日数が足りません！';
+			} else if($workday==1) {
+				$options['expressError'] = '<a href="/sameday/">当日仕上げの専用ページ</a>をご利用ください。';
+			} else if($workday==2) {
+				if ($isPack) $opt['pack'] = 0;
+			} else if($isPack) {
 				$workday--;
 			}
+
 			$express = 0;
-			
 			switch($workday){
 				case 1:	$express = 10;
-						$options['expressInfo'] = '当日仕上げ';
-						break;
+					$options['expressInfo'] = '当日仕上げ';
+					break;
 				case 2:	$express = 5;
-						$options['expressInfo'] = '翌日仕上げ';
-						break;
+					$options['expressInfo'] = '翌日仕上げ';
+					break;
 				case 3:	$express = 3;
-						$options['expressInfo'] = '２日仕上げ';
-						break;
-			}
-			if($workday<1){
-				$options['expressError'] = '製作日数が足りません';
-			}else{
-				$options['expressfee'] = ceil(($p2*$express)/10);
+					$options['expressInfo'] = '２日仕上げ';
+					break;
 			}
 		}
+		if(empty($opt['pack'])){
+			$options['packfee'] = 0;
+		}else if($opt['pack'] == 1){
+			$options['packfee'] = $_SESSION['orders']['sum']['amount']*_PACK_FEE;
+		}else{
+			$options['packfee'] = $_SESSION['orders']['sum']['amount']*_NO_PACK_FEE;
+		}
+		$opt['packfee'] = $options['packfee'];
+		$p2 = $p1 + $options['discount']+$options['packfee'];
+
+		$options['expressfee'] = ceil(($p2*$express)/10);
 		$_SESSION['orders']['options']['expressInfo'] = $options['expressInfo'];
 		$_SESSION['orders']['options']['expressfee'] = $options['expressfee'];
 		
-		$options['optionfee'] = $options['discount'] + $options['carriage'] + $options['codfee'] + $options['conbifee'] + $options['pack'] + $options['expressfee'];
+		$options['carriage'] = ($p2<30000 && $p2>0)? 700: 0;
+		$options['codfee'] = ($opt['payment']=='1')? 800: 0;
+		$options['conbifee'] = ($opt['payment']=='4')? 800: 0;
+		
+		$options['optionfee'] = $options['discount'] + $options['carriage'] + $options['codfee'] + $options['conbifee'] + $options['packfee'] + $options['expressfee'];
 		
 		$options['payment'] = $opt['payment'];
 		$options['deliveryday'] = $opt['deliveryday'];
@@ -1056,6 +1087,8 @@ $orderMail = new Ordermail();
 	*												   		 ['categorytype']
 	*												   		 ['itemtype']
 	*														 ['areakey']
+	*														 ['areasize']
+	*														 ['printing']
 	*
 	*	@itemid			アイテムID
 	*	@colorcode		カラーコード　（指定なしは当該アイテムで指定されている全てのカラーを取得する）
@@ -1126,6 +1159,8 @@ $orderMail = new Ordermail();
 	*												   		 ['categorytype']
 	*												   		 ['itemtype']
 	*														 ['areakey']
+	*														 ['areasize']
+	*														 ['printing']
 	*
 	*	['attach'][0]['pos']['id']
 	*						['base']
@@ -1138,46 +1173,59 @@ $orderMail = new Ordermail();
 	*	@category_id		カテゴリーID
 	*
 	*	return			{posid:{'img':[{'filename','base_name','posid','ppdata'},{},{}], 
-	*							'design':{base:[{'posname','poskey','ink','categorytype','itemtype','areakey'},{...}]},
+	*							'design':{base:[{'posname','poskey','ink','categorytype','itemtype','areakey','areasize','printing'},{...}]},
 	*							'categoryname':catebory_name,
 	*							  } }
 	*/
 	public function reqOrderposition($item_id, $category_id){
 		$files = array();
-		if(!isset($_SESSION['orders']['items'][$category_id]['item'][$item_id])){
+		if (!isset($_SESSION['orders']['items'][$category_id])) {
 			$tmp = parent::positionFor($item_id);
-			$files[$tmp[0]['posid']]['img'] = parent::positionFor($item_id);
-		}else{
+			$posId = $tmp[0]['posid'];
+			$files[$posId]['img'] = $tmp;
+		} elseif (!isset($_SESSION['orders']['items'][$category_id]['item'][$item_id])) {
+			$tmp = parent::positionFor($item_id);
+			$posId = $tmp[0]['posid'];
+			$files[$posId]['img'] = $tmp;
+			foreach($_SESSION['orders']['items'][$category_id]['item'] as $itemId=>$val){
+				if($val['posid'] != $posId) continue;
+				$files[$posId]['design'] = $_SESSION['orders']['items'][$category_id]['item'][$itemId]['design'];
+				$files[$posId]['categoryname'] = $_SESSION['orders']['items'][$category_id]['category_name'];
+				break;
+			}
+		} else {
 			foreach($_SESSION['orders']['items'] as $catid=>$val){
 				$catname = $val['category_name'];
 				foreach($val['item'] as $itemid=>$val2){
 					if($itemid!=$item_id) continue;
-					$posid = $val2['posid'];
-					if(!isset($files[$posid])){
-						$files[$posid]['img'] = parent::positionFor($itemid);
+					$posId = $val2['posid'];
+					if(!isset($files[$posId])){
+						$files[$posId]['img'] = parent::positionFor($itemid);
 					}
-					for($i=0; $i<count($files[$posid]['img']); $i++){
-						$base = $files[$posid]['img'][$i]['base_name'];
+					for($i=0; $i<count($files[$posId]['img']); $i++){
+						$base = $files[$posId]['img'][$i]['base_name'];
 						if(!isset($val2['design'][$base])){
-							if(isset($design[$posid][$base])){
-								$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base] = $design[$posid][$base];
+							if(isset($design[$posId][$base])){
+								$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base] = $design[$posId][$base];
 							}else{
-								$tmp = array('posname'=>'',
-											 'poskey'=>'',
-											 'ink'=>0,
-											 'categorytype'=>'',
-											 'itemtype'=>'',
-											 'areakey'=>''
-											);
-								$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base][0] = $tmp;
+								$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base][0] = array('posname'=>'',
+																												  'ink'=>0,
+																												  'attachname'=>'',
+																												  'poskey'=>'',
+																												  'categorytype'=>'',
+																												  'itemtype'=>'',
+																												  'areakey'=>'',
+																												  'areasize'=>'',
+																												  'printing'=>''
+																												 );
 							}
 						}else{
-							$design[$posid][$base] = $val2['design'][$base];
+							$design[$posId][$base] = $val2['design'][$base];
 						}
 					}
-					
-					$files[$posid]['design'] = $_SESSION['orders']['items'][$catid]['item'][$itemid]['design'];
-					$files[$posid]['categoryname'] = $catname;
+
+					$files[$posId]['design'] = $_SESSION['orders']['items'][$catid]['item'][$itemid]['design'];
+					$files[$posId]['categoryname'] = $catname;
 				}
 			}
 		}
@@ -1206,6 +1254,8 @@ $orderMail = new Ordermail();
 	*												   		 ['categorytype']
 	*												   		 ['itemtype']
 	*														 ['areakey']
+	*														 ['areasize']
+	*														 ['printing']
 	*	
 	*	return		 { 'items':[{'itemid','name','color','sizeid','size','cost','amount','subtotal','pos':[...]},{}, ...],
 	*				   'option':{'discount':割引, 'carriage':送料, 'codfee':代引手数料, pack:袋詰代, discountname:[...]},
@@ -1231,6 +1281,8 @@ $orderMail = new Ordermail();
 						$design[$k]['itemname'] = $val2['name'];
 						$design[$k]['posname'] = $val5[$i]['posname'];
 						$design[$k]['ink'] = $ink;
+						$design[$k]['areasize'] = $val5[$i]['areasize'];
+						$design[$k]['printing'] = $val5[$i]['printing'];
 						$k++;
 					}
 				}
@@ -1260,7 +1312,7 @@ $orderMail = new Ordermail();
 		
 		//$option = $this->reqOptionfee();
 		$option = $_SESSION['orders']['sum'];
-		$option['packvalue'] = $_SESSION['orders']['options']['pack'];
+		$option['pack'] = $_SESSION['orders']['options']['pack'];
 		$option['attach'] = array();
 		for($i=0; $i<count($_SESSION['orders']['attach']); $i++){
 			$option['attach'][] = $_SESSION['orders']['attach'][$i]['img']['name'];
@@ -1270,6 +1322,8 @@ $orderMail = new Ordermail();
 		$user = $_SESSION['orders']['customer'];
 		$user['comment'] = nl2br($user['comment']);
 		$user['note_design'] = nl2br($user['note_design']);
+		$user['note_printcolor'] = nl2br($user['note_printcolor']);
+		$user['note_printmethod'] = nl2br($user['note_printmethod']);
 		
 		$data = array('items'=>$list, 'design'=>$design, 'option'=>$option, 'user'=>$user);
 		return $data;
@@ -1447,7 +1501,7 @@ if(isset($_REQUEST['act'])){
 	case 'orderposition':
 	/*
 	*	response		{posid:{'img':[{'filename','base_name','posid','ppdata'},{},{}], 
-	*							'design':{base:[{'posname','poskey','ink','categorytype','itemtype','areakey'},{...}]},
+	*							'design':{base:[{'posname','poskey','ink','categorytype','itemtype','areakey','areasize','printing'},{...}]},
 	*							'categoryname':catebory_name,
 	*							  } }
 	*
@@ -1470,7 +1524,7 @@ if(isset($_REQUEST['act'])){
 				$res .= '<div class="posimg">'.$f.'</div>';
 				$res .= '<div class="inkbox">';
 				$res .= '<table><caption>'.$base_name.'</caption>';
-				$res .= '<thead><tr><th>プリント位置</th><th>プリントするデザインの色数</th></tr></thead>';
+				$res .= '<thead><tr><th>プリント位置</th><th>デザインの大きさ</th><th>デザインの色数</th></tr></thead>';
 				$res .= '<tfoot><tr><td>'.$ppData['category'].'</td><td>'.$ppData['item'].'</td><td>'.$posname_key.'</td></tr></tfoot>';
 				$res .= '<tbody>';
 				
@@ -1492,14 +1546,23 @@ if(isset($_REQUEST['act'])){
 							//$attachname = $v['design'][$base_name][$j]['attachname'];
 						}
 						$ink = $v['design'][$base_name][$j]['ink'];
+						$size = $v['design'][$base_name][$j]['areasize'];
 						$res .= '<tr>';
 						$res .= '<th>'.$posname.'</th>';
 						$res .= '<td>';
+						if ($posid!=46) {
+							$res .= '<select class="areasize">';
+							$select = '<option value="0">大</option><option value="1">中</option><option value="2">小</option>';
+							$res .= str_replace('value="'.$size.'"', 'value="'.$size.'" selected="selected"', $select);
+							$res .= '</select>';
+						}
+						$res .= '</td>';
+						$res .= '<td>';
 						if($posid!=46){
-							$res .= '<select>';
+							$res .= '<select class="ink">';
 							$select = '<option value="0">選択してください</option>';
 							$select .= '<option value="1">1色</option><option value="2">2色</option><option value="3">3色</option>';
-							$select .= '<option value="4">4色以上</option>';
+							$select .= '<option value="9">4色以上</option>';
 							$res .= str_replace('value="'.$ink.'"', 'value="'.$ink.'" selected="selected"', $select);
 							$res .= '</select>';
 						}else{
@@ -1526,11 +1589,18 @@ if(isset($_REQUEST['act'])){
 					$res .= '<tr>';
 					$res .= '<th>'.$first_posname.'</th>';
 					$res .= '<td>';
+					if ($posid!=46) {
+						$res .= '<select class="areasize">';
+						$res .= '<option value="0" selected="selected">大</option><option value="1">中</option><option value="2">小</option>';
+						$res .= '</select>';
+					}
+					$res .= '</td>';
+					$res .= '<td>';
 					if($posid!=46){
-						$res .= '<select>';
+						$res .= '<select class="ink">';
 						$res .= '<option value="0" selected="selected">選択してください</option>';
 						$res .= '<option value="1">1色</option><option value="2">2色</option><option value="3">3色</option>';
-						$res .= '<option value="4">4色以上</option>';
+						$res .= '<option value="9">4色以上</option>';
 						$res .= '</select>';
 					}else{
 						$res .= '<p class="note"><span>※</span>プリントなしの商品です。</p>';
@@ -1562,6 +1632,7 @@ if(isset($_REQUEST['act'])){
 		
 		//$res .= '|'.$_SESSION['orders']['items'][$_REQUEST['catid']]['item'][$_REQUEST['itemid']]['noprint'];
 		$res .= '|'.$_SESSION['orders']['options']['noprint'];
+		$res .= '|'.$_SESSION['orders']['customer']['note_printmethod'];
 		//$res = mb_convert_encoding($res, 'euc-jp', 'utf-8');
 		$isJSON = false;
 		break;
@@ -1726,7 +1797,7 @@ if(isset($_REQUEST['act'])){
 	*
 	*	return		登録済み：[顧客情報]、　未登録：[]
 	*/
-		$dat = $orders->checkExistEmail($_REQUEST['email'],$_REQUEST['reg_site']);
+		$dat = $orders->checkExistEmail($_REQUEST['args']);
 		break;
 	}
 	

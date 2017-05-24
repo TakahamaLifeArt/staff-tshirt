@@ -771,14 +771,22 @@ p.thumb_h .notes_color {
 	white-space: nowrap;
 }
 
-.inkbox select {
+.inkbox select.ink {
 	width: 150px;
 }
 
+.inkbox select.areasize {
+	width: 60px;
+}
 
 #step3 .inner {
 	clear: both;
 	margin: 40px 0px;
+}
+
+#note_printmethod {
+	width: 100%;
+	height: 5em;
 }
 
 

@@ -217,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				                                                    <div class="sizes">'.$v['sizes'].'</div>
 				                                                    <p class="price_s">
 				                                                        TAKAHAMA価格<br>
-				                                                        <span><span>'.$v['minprice'].'</span>円&#8764;</span>
+				                                                        <span><span>'.$v['minprice'].'</span>円&#12316;</span>
 				                                                    </p>
 				                                                </li>
 				                                            </ul>
@@ -250,7 +250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				                                                <div class="size">'.$v['sizes'].'</div>
 				                                                <p class="price">
 				                                                    TAKAHAMA価格<br>
-				                                                    <span><span>'.$v['minprice'].'</span>円&#8764;</span>
+				                                                    <span><span>'.$v['minprice'].'</span>円&#12316;</span>
 				                                                </p>
 				                                            </li>
 				                                        </ul>
@@ -393,8 +393,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												<span>※</span>プリントなしの場合1割増しになります。
 											</p>
 										</div>
-										<div id="pos_wrap">
-											
+										<div id="pos_wrap"></div>
+										<div>
+											<h3 class="heading_mark">刺繍をご希望の方はご記入ください</h3>
+											<p class="note">例　左そで：刺繍</p>
+											<textarea id="note_printmethod"  name="note_printmethod"></textarea>
 										</div>
 										<div class="arrow_line">
 											<div class="arrow prev" data-back="1">
@@ -447,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 												</thead>
 												<tfoot>
 													<tr><td colspan="4">商品代計</td><td class="ac"><ins class="totamount">0</ins> 枚</td><td class="itemsum">0</td><td></td></tr>
-													<tr><td colspan="2">プリント代</td><td colspan="3" class="printing"></td><td class="printfee">0</td><td></td></tr>
+													<tr><td colspan="2">プリント代</td><td class="print_size ac"></td><td class="print_pos ac"></td><td class="ink_count ac"></td><td class="printfee">0</td><td></td></tr>
 													<tr><td colspan="5">送料</td><td class="carriage">0</td><td></td></tr>
 													<tr><td colspan="5">代引手数料</td><td class="codfee">0</td><td></td></tr>
 													<tr><td colspan="5">コンビニ手数料</td><td class="conbifee">0</td><td></td></tr>
@@ -619,7 +622,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 											<p class="comment">「<span>※</span>」印は必須入力です。</p>
 											<div id="user_wrap" class="clearfix inner">
 												<div class="g_ft" style="width=98%;border-bottom: 1px solid #d8d8d8;margin-top:20px;padding-bottom:20px;">
-													<h1 class="login_nodisplay">2回目以降注文の方はこちら</p></h1>
+													<h1 class="login_nodisplay">2回目以降注文の方はこちら</h1>
 													<div class="ftl">
 														<ul>
 															<li id= "login_email" class="login_nodisplay"><h2>メールアドレス:<span class="fontred">※</span></h2><input type="text" id="login_input_email" name="login_input_email" value="<?php echo $user['email']; ?>" /></li>
@@ -633,70 +636,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														</ul>
 													</div>
 												</div>
-												<h1 class="login_nodisplay">新規登録の方はこちら</p></h1>
+												<h1 class="login_nodisplay">新規登録の方はこちら</h1>
 												<div style="margin-top:35px;margin-bottom:10px;color: #1520d9;"><li class="login_nodisplay"><p>☆☆会員の方:新規ご登録の方はログイン不要、注文完了時に会員自動登録されます。☆☆</p></li></div>
 												<div class="ftl">
 													<ul>
 														<li id= "login_email"><h2>メールアドレス:<span class="fontred">※</span></h2><input type="text" id="email" name="email" value="<?php echo $user['email']; ?>" /></li>
 														<li class="login_nodisplay"><h2>新規 パスワード:<span class="fontred">※</span></h2><input type="password" value="<?php echo $user['password']; ?>" id="pass"  name="pass" /></li>
-														<li class="login_nodisplay"><span class="fontred">※</span>新規の方は、新しくパスワードを入力します。半角英数字4文字以上16文字以内。</div>
+														<li class="login_nodisplay"><span class="fontred">※</span>新規の方は、新しくパスワードを入力します。半角英数字4文字以上16文字以内。</li>
 													</ul>
 												</div>
-												<div class="fl">
-													<ul>
-														<li><h2>お名前:<span class="fontred">※</span></h2>
-															<input type="text" id="customername" name="customername" value="<?php echo $user['customername']; ?>">　様
-														</li>
-														<li>
-															<h2>フリガナ:</h2><input type="text" id="customerruby" name="customerruby" value="<?php echo $user['customerruby']; ?>">　様
-														</li>
-														<li><h2>お電話番号:<span class="fontred">※</span></h2><input type="text" id="tel" name="tel" class="forPhone"  value="<?php echo $user['tel']; ?>" /></li>
-														<li><h2>弊社ご利用について:<span class="fontred">※</span></h2>
-															<label class="lbl"><input type="radio" name="repeater" value="1" <?php if($user['repeater']==1) echo 'checked="checked"'; ?> /> 初めてのご利用</label>
-															<label class="lbl"><input type="radio" name="repeater" value="2" <?php if($user['repeater']==2) echo 'checked="checked"'; ?> /> 以前にも注文したことがある</label>
-														</li>
-													</ul>
-												</div>
-
-								<div class="fr">
-									<ul>
-										<li><h2 class="login_nodisplay">ご住所:<span class="fontred">※</span></h2></li>
-										<li><h2 class="login_display">お届け先:<span class="fontred">※</span></h2></li>
-					 					<li><p><select name="delivery_customer" id="delivery_customer"></select></p></li>
-					 					<li>
-											<p>〒<input type="text" name="zipcode" class="forZip" id="zipcode1" value="<?php echo $user['zipcode']; ?>" onChange="AjaxZip3.zip2addr(this,'','addr0','addr1');" /></p>
-											<p><input type="text" name="addr0" id="addr0" value="<?php echo $user['addr0']; ?>" placeholder="都道府県" maxlength="4" /></p>
-											<p><input type="text" name="addr1" id="addr1" value="<?php echo $user['addr1']; ?>" placeholder="文字数は全角28文字、半角56文字です" maxlength="56" class="restrict" /></p>
-											<p><input type="text" name="addr2" id="addr2" value="<?php echo $user['addr2']; ?>" placeholder="文字数は全角16文字、半角32文字です" maxlength="32" class="restrict" /></p>
-										</li>
-										<li><h2>ご要望・ご質問など:</h2><textarea cols="30" rows="5" name="comment"><?php echo $user['comment']; ?></textarea></li>
-									</ul>
-								</div>
-							</div>
-
-											
-											<table class="inner">
-												<tbody>
-													<tr>
-														<th>
-															デザインの掲載について:
-														</th>
-														<td>
-															<p class="txt">オリジナルプリントを作成される方の参考に、皆様のデザインをWEB上に<br>掲載させて頂いております。下記の選択をお願い致します。</p>
-															<p class="line">
-																<label><input type="radio" name="publish" value="0" <?php if(empty($regist['options']['publish'])) echo 'checked="checked"'; ?> /> 掲載可</label>
-																<label><input type="radio" name="publish" value="1" <?php if($regist['options']['publish']==1) echo 'checked="checked"'; ?> /> 掲載不可</label>
-															</p>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-										<div class="arrow_line">
-											<div class="arrow prev" data-back="3">
-												<span>戻る</span>
 											</div>
-											<div class="step_next goto_confirm">確認画面へ</div>
+											<div class="fl">
+												<ul>
+													<li><h2>お名前:<span class="fontred">※</span></h2>
+														<input type="text" id="customername" name="customername" value="<?php echo $user['customername']; ?>">　様
+													</li>
+													<li>
+														<h2>フリガナ:</h2><input type="text" id="customerruby" name="customerruby" value="<?php echo $user['customerruby']; ?>">　様
+													</li>
+													<li><h2>お電話番号:<span class="fontred">※</span></h2><input type="text" id="tel" name="tel" class="forPhone"  value="<?php echo $user['tel']; ?>" /></li>
+													<li><h2>弊社ご利用について:<span class="fontred">※</span></h2>
+														<label class="lbl"><input type="radio" name="repeater" value="1" <?php if($user['repeater']==1) echo 'checked="checked"'; ?> /> 初めてのご利用</label>
+														<label class="lbl"><input type="radio" name="repeater" value="2" <?php if($user['repeater']==2) echo 'checked="checked"'; ?> /> 以前にも注文したことがある</label>
+													</li>
+												</ul>
+											</div>
+											<div class="fr">
+												<ul>
+													<li><h2 class="login_nodisplay">ご住所:<span class="fontred">※</span></h2></li>
+													<li><h2 class="login_display">お届け先:<span class="fontred">※</span></h2></li>
+													<li><p><select name="delivery_customer" id="delivery_customer"></select></p></li>
+													<li>
+														<p>〒<input type="text" name="zipcode" class="forZip" id="zipcode1" value="<?php echo $user['zipcode']; ?>" onChange="AjaxZip3.zip2addr(this,'','addr0','addr1');" /></p>
+														<p><input type="text" name="addr0" id="addr0" value="<?php echo $user['addr0']; ?>" placeholder="都道府県" maxlength="4" /></p>
+														<p><input type="text" name="addr1" id="addr1" value="<?php echo $user['addr1']; ?>" placeholder="文字数は全角28文字、半角56文字です" maxlength="56" class="restrict" /></p>
+														<p><input type="text" name="addr2" id="addr2" value="<?php echo $user['addr2']; ?>" placeholder="文字数は全角16文字、半角32文字です" maxlength="32" class="restrict" /></p>
+													</li>
+													<li><h2>ご要望・ご質問など:</h2><textarea cols="30" rows="5" name="comment"><?php echo $user['comment']; ?></textarea></li>
+												</ul>
+											</div>
+										</div>
+
+										<table class="inner">
+											<tbody>
+												<tr>
+													<th>
+														デザインの掲載について:
+													</th>
+													<td>
+														<p class="txt">オリジナルプリントを作成される方の参考に、皆様のデザインをWEB上に<br>掲載させて頂いております。下記の選択をお願い致します。</p>
+														<p class="line">
+															<label><input type="radio" name="publish" value="0" <?php if(empty($regist['options']['publish'])) echo 'checked="checked"'; ?> /> 掲載可</label>
+															<label><input type="radio" name="publish" value="1" <?php if($regist['options']['publish']==1) echo 'checked="checked"'; ?> /> 掲載不可</label>
+														</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="arrow_line">
+										<div class="arrow prev" data-back="3">
+											<span>戻る</span>
+										</div>
+										<div class="step_next goto_confirm">確認画面へ</div>
 									</div>
 								</div>
 							</div>
@@ -794,7 +796,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														<tr>
 															<th>アイテム</th>
 															<th>プリント位置</th>
-															<th>プリントするデザインの色数</th>
+															<th>デザインのサイズ</th>
+															<th>デザインの色数</th>
 														</tr>
 													</thead>
 													<tbody></tbody>

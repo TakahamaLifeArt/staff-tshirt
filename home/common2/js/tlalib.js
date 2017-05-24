@@ -180,11 +180,11 @@ $.getScript('/common2/js/phonedata.js');
 				var isMove = false;	// カーソル移動が出来たかどうかのチェック
 				var elem = my.form.elements;
 			    for(var i=0; i<elem.length; i++){
-			    	if( first==-1 && elem[i].type=="text" && !$(elem[i]).attr('readonly') && elem[i].style.display!='none' ) first = i;
+			    	if( first==-1 && elem[i].type=="text" && !$(elem[i]).prop('readonly') && elem[i].style.display!='none' ) first = i;
 			    	if( elem[i]==my ){
 		    			while(i<elem.length-1){
 		    				i++;
-			    			if( elem[i].type=="text" && !$(elem[i]).attr('readonly') && elem[i].style.display!='none' ){
+			    			if( elem[i].type=="text" && !$(elem[i]).prop('readonly') && elem[i].style.display!='none' ){
 			    				elem[i].focus();
 			    				isMove = true;
 			    				break;

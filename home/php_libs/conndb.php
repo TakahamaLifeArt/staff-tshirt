@@ -484,12 +484,12 @@ class Conndb extends HTTP {
 	/*
 	*	メールアドレスの存在確認
 	*	
-	*	@args			[e-mail, reg_site]
+	*	@args			[e-mail]
 	*
 	*	@return			[顧客情報]
 	************************************************/
-	public function checkExistEmail($email,$reg_site){
-		$res = parent::request('POST', array('act'=>'checkexistemail', 'email'=>$email, 'reg_site'=>$reg_site));
+	public function checkExistEmail($args){
+		$res = parent::request('POST', array('act'=>'checkexistemail', 'args'=>$args));
 		$data = unserialize($res);
 		
 		return $data;

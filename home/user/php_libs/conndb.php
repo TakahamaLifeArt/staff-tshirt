@@ -235,13 +235,13 @@ class Conndb extends HTTP {
 
 	/*
 	*	メールアドレスの重複チェック
-	*	@args	[メールアドレス, reg_site]
+	*	@args	[メールアドレス]
 	*	return	ユーザー情報:重複　false:新規
 	*/
-	public function checkExistEmail($email,$reg_site){
-		$res = parent::request('POST', array('act'=>'checkexistemail', 'email'=>$email, 'reg_site'=>$reg_site));
+	public function checkExistEmail($args){
+		$res = parent::request('POST', array('act'=>'checkexistemail', 'args'=>$args));
 		$data = unserialize($res);
-		
+
 		return $data;
 	}
 	
