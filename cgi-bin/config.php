@@ -38,9 +38,6 @@ define('_API_PSS', 'http://takahama428.co-site.jp/v1/api');		// Photo Sharing Se
 define('_IMG_PSS', 'http://takahamalifeart.com/weblib/img/');
 define('_ORDER_INFO', 'http://test.original-sweat.com/system/php_libs/ordersinfo.php');
 
-// PASSWORD KEY
-define('_PASSWORD_KEY', 'Rx-o:akLK)ZEs!qE');
-
 // Sweat Campaign 2011
 define('_REDIRECT', 'http://www.takahama428.com/sweat_campaign/');
 
