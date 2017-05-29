@@ -32,11 +32,11 @@ define('_PACK_FEE', 50);
 define('_NO_PACK_FEE', 10);
 define('_CREDIT_RATE', 0.05);	// カード手数料率
 
-define('_API', 'http://test.takahamalifeart.com/v1/api');
-define('_API_U', 'http://test.takahamalifeart.com/v1/apiu');				// マイページ API
+define('_API', 'http://takahamalifeart.com/v1/api');
+define('_API_U', 'http://takahamalifeart.com/v1/apiu');				// マイページ API
 define('_API_PSS', 'http://takahama428.co-site.jp/v1/api');		// Photo Sharing Service Member
 define('_IMG_PSS', 'http://takahamalifeart.com/weblib/img/');
-define('_ORDER_INFO', 'http://test.original-sweat.com/system/php_libs/ordersinfo.php');
+define('_ORDER_INFO', 'http://original-sweat.com/system/php_libs/ordersinfo.php');
 
 // Sweat Campaign 2011
 define('_REDIRECT', 'http://www.takahama428.com/sweat_campaign/');
