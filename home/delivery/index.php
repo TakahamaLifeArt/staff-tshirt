@@ -34,7 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<link rel="stylesheet" type="text/css" href="../css/common - test.css" media="all">
 	<link rel="stylesheet" type="text/css" href="../css/flexnav1.css" media="all">
 	<link rel="stylesheet" type="text/css" href="../css/media-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="./css/deliveryday.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="./css/deliveryday_test.css" media="screen" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
@@ -89,12 +89,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="mainwrap">
 	<section id="main">
 			<div class="heading1_wrapper">
-				<h2  class="heading2">お届け日を調べる</h2>
-				<p class="sub">Delivery day</p>
+				<h2  class="heading2_otodoke">お届け日</h2>
+				<!--<p class="sub">Delivery day</p>-->
 			</div>
 			
 
-			<div id="delivery_date_now" class="delivery_date_wrapper">
+			<!-- <div id="delivery_date_now" class="delivery_date_wrapper">
 				<div class="heading2_s">
 					<h2>今、<span>お電話での確認まで</span>完了した場合のお届け日を調べる</h2>
 				</div>
@@ -147,13 +147,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					(※２) 翌日仕上げの場合は、通常料金の<span>1.5倍</span>になります。<br>
 					(※３) 2日仕上げの場合は、通常料金の<span>1.3倍</span>になります。
 				</div>
-			</div>
+			</div>  -->
 			
-			<div id="bigbanner"><a href="#schedule_wrapper"><img src="../img/banner/sokuzitsu.png" width="100%"></a></div>
+			
 			
 			<div id="delivery_date_search" class="delivery_date_wrapper">
 				<div class="heading2_s">
-					<h2>日付を指定して、間に合うかどうかを調べる</h2>
+					<h2>お届け日(納期)を調べる</h2>
 				</div>
 				
 				<div class="s_step">
@@ -163,11 +163,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<input type="checkbox" id="transport" name="transport" value="2" /> <label class="pointer" for="transport">配達日数が２日かかります。</label>
 					</div>
 				</div>
+				
 				<div class="s_step">
-					<h3 class="heading3"><span>2.</span>日付を指定して、間に合うかどうかを調べる</h3>
-					<p>「注文確定日からお届け日を計算」または、<br>
-					「お届け日(手元に欲しい日)から注文確定しなければいけない日を計算」します。</p>
-					<p class="kome">※注文確定条件は<a href="#condition">コチラ</a></p>
+					<h3 class="heading3"><span>2.</span>注文確定日もしくは、お届け日を指定</h3>
+					<!--<p>「注文確定日からお届け日を計算」または、<br>
+					「お届け日(手元に欲しい日)から注文確定しなければいけない日を計算」します。</p>-->
+					<p class="toha"><a href="#condition"><img sc="/st_question_icon.png">注文確定とは</a></p>
 				</div>
 
 				<div id="cal_date">
@@ -357,49 +358,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<p class="clearfix"></p>
 				</div>
 
-				<p class="btnOrder_wrap2"><a href="/order/" id="btngrn">お申込み</a></p>
+
+				<ul class="cal_red">
+					<li>
+				<p class="btnOrder_wrap"><a href="http://www.staff-tshirt.com/contact/staff_contact/" id="btnnvy">お問い合わせ</a></p></li>
+					<li>
+				<p class="btnOrder_wrap"><a href="/order/" id="btngrn">お申込み</a></p></li>
+				</ul>
+				
+				
 				
 				<div class="note">
-					(※) お届け先が、北海道、九州、沖縄、東京離島、島根隠岐郡　のいずれかとなる場合は表示日数より１日多くかかります。<br>
 					(※１) <span>まずはお電話でご相談ください。</span>アイテムは Tシャツ<a href="/items/itemdetail.php?c=t-shirts&i=4">085-CVT</a> の白か黒に限ります（サイズはS～XL）。<br>
-					(※１) 当日仕上げの場合は<span>12:00</span>を過ぎると翌日扱いになります。
+					(※１) 当日仕上げの場合は<span>12:00</span>を過ぎると翌日扱いになります。<br>
 					(※２) 翌日仕上げの場合は、通常料金の<span>1.5倍</span>になります。<br>
 					(※３) 2日仕上げの場合は、通常料金の<span>1.3倍</span>になります。
 				</div>
 			</div>
 
+
+
+
+
+
+<p class="oisogi">お急ぎの方はこちら！</p>
+<div id="bigbanner"><a href="#schedule_wrapper"><img src="../img/banner/sokuzitsu.png" width="100%"></a></div>
+
+
 			<div id="other_info">
 				<div id="condition" class="plan_wrapper">
 					<div>
-						<h2 class="heading2">ご注文確定条件</h2>
+						
+						
+						
+						
+						<h2 class="heading2_otodoke">ご注文確定条件</h2>
 					</div>
-					<p>お昼13：00までに以下の3点が確定していることが必要です。</p>
+					<p class="big">13:00までに<font color="red"><b>以下の3つ</b></font>を<font color="red"><b>電話</b></font>で確認してください！<br><font color="#001D87">13:00を過ぎると翌日扱いになります。</font></p>
+					
 					<ol class="plan_list">
-						<li>デザインが確定している</li>
-						<li>商品の種類、数量、カラー、枚数が確定している</li>
-						<li>送り先が確定している</li>
+					<img src="../delivery/img/st_point.jpg" width="100%">
 					</ol>
-					<p class="note"><span>※</span> お電話での確認が必ず必要です。</p>
 					<p class="note"><span>※</span> 期間によってはキャンセルや枚数変更はできないことがあります。</p>
-					<p class="note"><span>※</span> 当日仕上げの場合は12:00までにご注文が確定していることが必要です。</p>
+					<p class="note"><span>※</span> <font color="red"><b>当日仕上げの場合は12:00まで</b></font>にご注文が確定していることが必要です。</p>
 				</div>
 
 				<div id="extracharge" class="plan_wrapper">
 					<div>
-						<h2 class="heading2">割増料金</h2>
+						<h2 class="heading2_otodoke">納期</h2>
 					</div>
-					<p>通常３日仕上げより早く仕上げるプランをご希望の場合は、割増料金がかかります。<br>
-					また使える割引は、イラレ割とブログ割となり、その他の割引は適用されません。</p>
-					<ul class="msg">
-						<li>2日仕上げの場合は、通常料金の<span>1.3</span>倍になります。</li>
-						<li>翌日仕上げの場合は、通常料金の<span>1.5</span>倍になります。</li>
-						<li>当日仕上げをご希望の場合は、お電話でご相談ください。</li>
-					</ul>
+					<img src="../delivery/img/bigbanner_nouki.jpg" width="100%">
+					<p class="nouki_big">なぜ最速短納期で届けられるの？</p>
+						<ul class="nouki_list">
+							<li><font color="#981B20"><b>1.</b></font>自社工場だから作成が早い！</li>
+							<li><font color="#981B20"><b>2.</b></font>通常でも3日仕上げだから早い！</li>
+							<li><font color="#981B20"><b>3.</b></font>直接引取りに来ることが可能！</li>
+						</ul>
+						
+					<h3 class="ryoukin">料金について</h3>
+					<p class="big">通常3日仕上げより早いお届けをご希望の場合は、<font color="red"><b>割増料金</b></font>がかかります。<br></p>
+					<img src="../delivery/img/hayasa.jpg" width="100%">
+					
+					<p class="tyuusyaku"><span>※</span>使える割引は、イラレ割とブログ割となり、その他の割引は適用されません。</p>
 				</div>
+				
+				
+				
 				<div id="schedule_wrapper" class="plan_wrapper">
-					<div>
-						<h2 class="heading2">当日特急プラン</h2>
+					
+					<div id="tokyuutitle">
+						<h2 class="heading2_hayai"><img src="../img/banner/sokuzitsu.png" width="100%"></h2>
 					</div>
+					
 					<div class="heading"><img src="./img/meritto.jpg" width="100%" class="leftdrop"><p class="textnon">3つのメリット</p></div>
 						<ol class="inflist">
 						<li><p><span class="stgbl">1.&emsp;<img src="./img/saisoku.png" width="29%" class="imgA"></span><br>&emsp;&emsp;全国当日出荷 … 最短6時間仕上げ</p></li>
@@ -410,20 +440,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="heading"><img src="./img/jouken.jpg" width="100%"  class="leftdrop"><p class="textnon">3つの条件</p></div>
 						<ol class="inflist">
 						<li><p><span class="stg">1.&emsp;12時までに注文確定!</span><br>&emsp;&emsp;データ入稿が完了している・お電話で注文確定している。</p></li>
-						<li><p><span class="stg">2.&emsp;1番人気のTシャツのみ対応可</span><br>&emsp;&emsp;CVT-085白と黒(Sサイズ～XL) </p></li>
+						<li><p><span class="stg">2.&emsp;1番人気のTシャツのみ対応可</span><br>&emsp;&emsp;CVT-085白と黒(Sサイズ～XL)&emsp;522-FTタオルの白色(フリーサイズ) </p></li>
 						<li><p><span class="stg">3.&emsp;お支払い方法</span><br>&emsp;&emsp;「代金引換」「銀行振込」「カード決済」になります。</p>
 						<p class="rgttxt"><span class="red">※</span>銀行振込・カード決済に限りご入金確認後、商品を発送致します。</p></li>
 						</ol>
 						
+						
+						
+						<div id="oisogi2">
+						<p class="oomoji">お急ぎの方はこちら！</p>
+						<div class="sankaku"></div>
+						<ul class="oisogi2_list">
+							<li>不明点等ありましたら、まずはお電話ください！</li>
+							<li>アイテム・デザインデータがお決まりの方は<br>こちらからすぐにお申し込みできます！</li>
+							<li><a href="tel:0120130428"><img src="img/tel.png" width="120%" onmouseover="this.src='/delivery/img/tel_2.png'"onmouseout="this.src='/delivery/img/tel.png'"></a></li>
+							<li><a href="http://www.staff-tshirt.com/contact/staff_contact/"><img src="img/toiawase.png" width="120%" onmouseover="this.src='/delivery/img/toiawase_2.png'"onmouseout="this.src='/delivery/img/toiawase.png'"></a></li>
+						</ul>
+						
+						<p style="text-align: right;font-size: 13px;">お問い合わせフォームの欄で当日特急にしてください！</p>
+						
+						</div>
+						
+						
 						<div class="content-lv3">
-					    	<h3 class="lines-on-sides">プラン別発送スケジュール</h3>			
+							<div class="heading"><img src="../delivery/img/schedule.png" width="100%"  class="lines-on-sides"><p class="textnon">プラン別発送スケジュール</p></div>		
 						<p class="ptxt">お客様のご要望に合わせた4つの仕上げプランの中で当日特急プランが一番早い！</p>
 						<p class="samday"><img src="./img/plan.png" width="80%"  alt="発送プラン"></p>
 						<p class="daytxt"><span class="red">※</span>発送は東京からしております。<br><span class="red">※</span>お届けが、2日以上かかる地域もございます。</p>
 						</div>
 		
 						<div class="content-lv3">
-					    	<h3 class="lines-on-sides">料金目安</h3>
+							<div class="heading"><img src="../delivery/img/price.png" width="100%"  class="lines-on-sides"><p class="textnon">料金目安</p></div>
 							<p class="ptxt2">アイテムの枚数とサイズ、プリントの色数と方法でおおよその1枚の料金目安をご確認できます。</p>
 							<p class="samday"><img src="./img/fee.png" width="80%" alt="料金目安"></p>
 							<p class="daytxt"><span class="red">※</span>在庫不足の場合、カラー・サイズの変更をお願いする場合がございます。</p>
