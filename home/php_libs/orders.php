@@ -352,7 +352,7 @@ $orderMail = new Ordermail();
 //							$a=0;
 //						}
 						$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base[$i]] = array();
-						if ($_REQUEST['ink'][$i]!=0) {
+//						if ($_REQUEST['ink'][$i]!=0) {
 							$tmp = array('poskey'=>$_REQUEST['poskey'][$i],
 										 'posname'=>$_REQUEST['posname'][$i],
 										 'ink'=>$_REQUEST['ink'][$i],
@@ -362,7 +362,7 @@ $orderMail = new Ordermail();
 										 'areasize'=>$_REQUEST['areasize'][$i],
 										);
 							$_SESSION['orders']['items'][$catid]['item'][$itemid]['design'][$base[$i]][$a] = $tmp;
-						}
+//						}
 					}
 				}
 			}
@@ -517,7 +517,7 @@ $orderMail = new Ordermail();
 						$files_len += $_FILES['attach']['size'][$i];
 						
 						if($files_len > _MAXIMUM_SIZE){
-							$error_msg = '添付ファイルサイズは20MBまでにして下さい。';
+							$error_msg = '添付ファイルサイズは100MBまでにして下さい。';
 							$result = 'ERR';
 						}else{
 						/*
@@ -885,7 +885,7 @@ $orderMail = new Ordermail();
 	*/	
 	public function reqPrintfee($sheetsize='1'){
 		$args = array();
-		if(!empty($_SESSION['orders']['items'])){
+		if($_SESSION['orders']['options']['noprint']==0 && !empty($_SESSION['orders']['items'])){
 			foreach($_SESSION['orders']['items'] as $catid=>$val){
 				foreach($val['item'] as $itemid=>$val2){
 
