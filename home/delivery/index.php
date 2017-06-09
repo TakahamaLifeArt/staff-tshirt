@@ -31,10 +31,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<link rel="stylesheet" type="text/css" href="/common2/js/ui/flick/jquery.ui.core.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="/common2/js/ui/flick/jquery.ui.datepicker.css" media="all" />
 	<link rel="stylesheet" type="text/css" href="/common2/js/ui/flick/jquery.ui.theme.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="../css/common - test.css" media="all">
+	<link rel="stylesheet" type="text/css" href="../css/common.css" media="all">
 	<link rel="stylesheet" type="text/css" href="../css/flexnav1.css" media="all">
 	<link rel="stylesheet" type="text/css" href="../css/media-style.css" media="all">
-	<link rel="stylesheet" type="text/css" href="./css/deliveryday_test.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="./css/deliveryday.css" media="screen" />
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
@@ -84,7 +84,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 <div id="head1"><h1>お支払い方法と送料について！スタッフTシャツ屋</h1></div>
 
-<?php include '../common/global_nav - test.html'; ?>
+<?php include '../common/global_nav.html'; ?>
 
 <div id="mainwrap">
 	<section id="main">
@@ -497,9 +497,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<p class="scroll_top"><a href="#head1">納期・お届け日　ページトップへ</a></p>
 
 	</section>
-	<?php include '../common/side_nav - test.html'; ?>
+	<?php include '../common/side_nav.html'; ?>
 </div>
-<?php include '../common/footer - test.html'; ?>
+<?php include '../common/footer.html'; ?>
 <div id="msgbox" class="modal fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">

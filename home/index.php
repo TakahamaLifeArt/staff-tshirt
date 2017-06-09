@@ -134,16 +134,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 		<title>スタッフTシャツを短納期で作成【即日】｜スタッフTシャツ屋</title>
 		<link rel="shortcut icon" href="/icon/favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/reset.css" media="all">
-		<link rel="stylesheet" type="text/css" href="css/top - test_test.css" media="all">
 		<link rel="stylesheet" type="text/css" href="css/flexnav1.css" media="all">
-		<link rel="stylesheet" type="text/css" href="css/express_test.css" media="all">
 		<link rel="stylesheet" type="text/css" href="css/slider-pro.min.css" media="screen">
 		<link rel="stylesheet" type="text/css" href="css/examples.css" media="screen">
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet'>
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/home.css" media="all">
-		<link rel="stylesheet" type="text/css" href="css/media-style_test.css" media="all">
+		<link rel="stylesheet" type="text/css" href="css/common.css" media="all">
+		<link rel="stylesheet" type="text/css" href="css/main.css" media="all">
+		<link rel="stylesheet" type="text/css" href="css/media-style.css" media="all">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 		<link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -183,7 +182,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 			<h1>スタッフTシャツを短納期で作成！</h1>
 		</div>
 
-		<?php include 'common/global_nav - test.html'; ?>
+		<?php include 'common/global_nav.html'; ?>
 
 		<div id="mainwrap">
 			<section id="main">
@@ -768,10 +767,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				</div>
 			</section>
 
-			<?php include 'common/side_nav - test.html'; ?>
+			<?php include 'common/side_nav.html'; ?>
 		</div>
 
-		<?php include 'common/footer - test.html'; ?>
+		<?php include 'common/footer.html'; ?>
 		<div id="msgbox" class="modal fade" tabindex="-1" role="dialog">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">

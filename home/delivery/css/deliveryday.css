@@ -19,15 +19,18 @@
 
 /*		見出し
 ===============================================================*/
-.heading1_wrapper{
-	padding-bottom:30px;
+
+.heading1_wrapper {
+    padding-bottom: 5px;
 }
-.heading2_s h2{
-	background: url(../../common/img/list_icon_b.png) no-repeat left;
-	padding-left: 30px;
-	margin-left: 3px;
-	letter-spacing: 2px;
-	color:#803300;
+
+.heading2_s h2 {
+    background: url(../../common/img/list_icon_b.png) no-repeat left;
+    padding-left: 30px;
+    margin-left: 3px;
+    letter-spacing: 2px;
+    color: #803300;
+    font-size: 33px;
 }
 .heading2_s h2 span{
 	font-weight:bold;
@@ -57,30 +60,45 @@
 	padding-right: 0.2em;
 	color: #000;
 }
-.heading3{
-	color: #803300;
-	font-size: 18px;
-	font-weight: normal;
+.heading3 {
+    color: #803300;
+    font-size: 25px;
+    font-weight: normal;
+    padding-bottom: 19px;
 }
-.heading3 span{
-	font-weight:bold;
-	font-size:20px;
+.heading3 span {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+h2.heading2_otodoke {
+    padding: 12px 12px 10px;
+    border-bottom: 3px solid #981B20;
+    font-size: 37px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 306px;
 }
 
 /*		今、注文の発送予定日
 ===============================================================*/
 .delivery_date_wrapper {
-    border: 2px solid #eae7d2;
+    border: 2px solid #000000;
     border-radius: 3px;
-    padding: 0 15px;
+    padding: 25px 78px;
     background: #fff;
     clear: both;
 }
 
 /*		日付を指定して調べる
 ===============================================================*/
-.s_step{
-	padding-bottom:20px;
+.s_step {
+    padding-bottom: 20px;
+    padding-top: 10px;
 }
 .s_step_inner{
 	padding:10px;
@@ -299,16 +317,33 @@
     line-height: 1.5;
 }
 
-.delivery_date_wrapper .note{
-	clear: both;
-	text-indent: 0;
-	padding: 10px 0;
-	font-size: 12px;
-	background: url(/common/img/dotted.png) repeat-x left top;
-	margin-top: 50px;
+.delivery_date_wrapper .note {
+    clear: both;
+    text-indent: 0;
+    padding: 20px 0;
+    font-size: 12px;
+    background: url(/common/img/dotted.png) repeat-x left top;
+    margin-top: 50px;
 }
 .delivery_date_wrapper .note span{
 	color: #ff0019;
+}
+
+.tyuusyaku {
+    font-size: 19px;
+    margin-bottom: 5px;
+    margin-top: 25px;
+}
+
+.tyuusyaku span{
+	color:#ff0019;
+}
+
+.big {
+    font-size: 25px;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 11px;
 }
 
 /*----------------------------------
@@ -318,34 +353,35 @@
 	clear: both;
 }
 
-.btnOrder_wrap #btnnvy{
+.btnOrder_wrap #btnnvy {
     display: block;
     width: 100%;
-    height: 40px;
-    padding: 10px 0px 20px;
-    font-size: 1.2em;
+    height: 54px;
+    padding: 20px 0px 20px;
+    font-size: 1.7em;
     font-weight: bold;
     color: #ffffff;
     background: #001D87;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    margin-right: 200%;
+    margin-left: 63%;
 }
 
-.btnOrder_wrap #btngrn{
+.btnOrder_wrap #btngrn {
     display: block;
     width: 100%;
-    height: 40px;
-    padding: 10px 0px 20px;
-    font-size: 1.2em;
+    height: 54px;
+    padding: 20px 0px 20px;
+    font-size: 1.7em;
     font-weight: bold;
     color: #ffffff;
     background: #63823f;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    margin-left: 200%;
+    margin-left: 127%;
+    margin-bottom: 35px;
 }
 
 
@@ -394,7 +430,7 @@
     text-decoration: none;
     clear: both;
     margin-left: 66%;
-    border:2px solid #63823f;
+    border: 2px solid #63823f;
 }
 
 .btnOrder_wrap2 #btngrn:hover {
@@ -406,13 +442,14 @@
 /*		条件・料金・スケジュール
 ===============================================================*/
 .plan_wrapper {
-	clear: both;
-	margin-top: 40px;
-	padding-bottom: 10px;
+    clear: both;
+    margin-top: 40px;
+    padding-bottom: 10px;
+    border-top: dotted;
+    border-color: rgba(128, 128, 128, 0.41);
 }
-.plan_list{
-	margin: 10px 0px 10px 40px;
-	padding: 5px 10px;
+.plan_list {
+    margin: 20px 0px;
 }
 .plan_list li {
 	list-style-type: decimal;
@@ -432,20 +469,30 @@ color: #ff0019;
 .note span:first-child {
     color: #ff0019;
 }
-
+.note {
+    font-size: 21px;
+    line-height: 33px;
+}
 
 /*		バナー
 ===============================================================*/
 #bigbanner {
-    text-align: right;
-    margin: 20px 0;
-    width: 50%;
-    float: right;
+    margin: auto;
+    width: 60%;
+    padding-top: 25px;
 }
 
 .bigbanner {
 	margin-bottom: 12px;
 }
+
+.oisogi {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 50px;
+}
+
+
 #campaign_class-t {
 	display: block;
 	width: 729px;
@@ -513,9 +560,9 @@ color: #ff0019;
 }
 
 .inflist .rgttxt {
-    text-align: right;
-    margin-right: 280px;
-    font-size: 1em;
+    text-align: left;
+    font-size: 1.4em;
+    line-height: 43px;
 }
 
 .inflist .rgttxt .red {
@@ -524,6 +571,14 @@ color: #ff0019;
 
 h3.lines-on-sides {
     display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2.1em;
+    padding: 20px 0px 10px;
+}
+
+.lines-on-sides {
+    display: block;
     align-items: center;
     text-align: center;
     font-size: 2.1em;
@@ -588,12 +643,6 @@ h3.lines-on-sides {
     line-height: 1.5;
 }
 
-.inflist .rgttxt {
-    text-align: right;
-    margin-right: 10em;
-    font-size: 1em;
-}
-
 .inflist .rgttxt .red {
     color: #ff0000;
 }
@@ -604,14 +653,6 @@ h3.lines-on-sides {
     text-align: left;
     margin-left: 50px;
     line-height: 1.5;
-}
-
-h3.lines-on-sides {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 2.1em;
-    padding: 20px 0px 10px;
 }
 
 .ong {
@@ -637,6 +678,129 @@ h3.lines-on-sides {
     margin: 20px 10%;
 }
 
+#tokyuutitle {
+    margin: 0 auto;
+    padding-top: 53px;
+}
+
+#oisogi2 .oomoji {
+    font-size: 51px;
+    text-align: center;
+    color: #981B20;
+    padding: 59px 10px 50px 10px;
+    font-weight: bold;
+    margin-right: 0px;
+}
+.oisogi2_list li {
+    float: left;
+    color: red;
+    margin: 0 0 0 41px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 29px;
+}
+
+.oisogi2_list li:first-child {
+    float: left;
+    color: black;
+    margin: 0 0 0 76px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 29px;
+    position: relative;
+    top: 26px;
+    right: 19px;
+}
+
+.oisogi2_list li:nth-child(2) {
+    float: left;
+    color: black;
+    margin: 0 0 0 63px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 29px;
+    position: relative;
+    right: 23px;
+}
+
+#oisogi2 p {
+    clear: both;
+    text-align: right;
+    color: #981B20;
+    margin: 0 67px 0 0;
+}
+
+.oisogi2_list li:nth-child(3) {
+    margin: 0 0 0 51px;
+}
+.oisogi2_list li:nth-child(4) {
+    margin: 0 0 0 113px;
+}
+
+.oisogi2_list li:nth-child(4):hover {
+
+}
+
+.oisogi2_list li p {
+    color: #981B20;
+    padding-bottom: 25px;
+    float: right;
+    margin: 16px 64px 0 0;
+    font-weight: bold;
+    font-size: 34px;
+}
+
+.oisogi2_list li p:hover {
+    color:white;
+    padding-bottom: 25px;
+    float: right;
+    margin: 16px 64px 0 0;
+    font-weight: bold;
+    font-size: 34px;
+}
+.sankaku {
+    width: 0;
+    height: 0;
+    border-top: 30px solid #981B20;
+    border-right: 80px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 80px solid transparent;
+    margin: 0 auto;
+}
+
+#bigbanner img:hover {
+   opacity: 0.5 ;
+}
+
+.nouki_big {
+    font-size: 47px;
+    margin: 38px 0;
+    text-align: center;
+    font-weight:bold;
+    color:#981B20
+}
+
+.nouki_list li {
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.nouki_list {
+    margin-bottom: 67px;
+    margin-left: 117px;
+}
+.ryoukin {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin: 19px 0;
+}
+.toha {
+    text-align: right;
+    margin-top: -12px;
+    font-size: 17px;
+    text-decoration: underline;
+}
 
 /*===============================================
 ●tablet.css 画面の横幅が768pxまで
@@ -761,8 +925,180 @@ h3.lines-on-sides {
     line-height: 1.5;
 }
 
+.delivery_date_wrapper {
+    border: 2px solid #000000;
+    border-radius: 3px;
+    padding: 25px 15px;
+    background: #fff;
+    clear: both;
+}
+.heading2_s, .heading2 {
+    margin: 16px 0 27px;
+    font-size: 1.5em;
+    text-align: left;
 }
 
+.heading2_s h2 {
+    background: url(../../common/img/list_icon_b.png) no-repeat left;
+    margin-left: 3px;
+    letter-spacing: 2px;
+    color: #803300;
+    font-size: 26px;
+}
+
+.s_step {
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.heading3 {
+    color: #803300;
+    font-size: 17px;
+    font-weight: normal;
+    padding-bottom: 19px;
+}
+
+.cal_red li, .cal_blue li {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.btnOrder_wrap {
+    clear: both;
+    padding: 10px;
+}
+
+.btnOrder_wrap #btnnvy {
+    display: block;
+    width: 100%;
+    height: 43px;
+    padding: 12px 0px 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #ffffff;
+    background: #001D87;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.btnOrder_wrap #btngrn {
+    display: block;
+    width: 100%;
+    height: 54px;
+    padding: 17px 0px 20px;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #ffffff;
+    background: #63823f;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 35px;
+    margin-left: 0;
+}
+
+li:nth-child(3) img {
+    margin: 0 auto;
+    width: 100%;
+}
+
+li:nth-child(4) img {
+    width: 100%;
+}
+
+.oisogi2_list li:first-child {
+    float: left;
+    color: #981B20;
+    margin: auto 0;
+    text-align: center;
+    font-size: 16px;
+    line-height: 29px;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+.oisogi2_list li:nth-child(2) {
+    float: left;
+    color: #981B20;
+    margin: 0 12px;
+    font-size: 16px;
+    line-height: 21px;
+    position: relative;
+    right: 0;
+    margin-bottom: 12px;
+}
+.nouki_big {
+    font-size: 21px;
+    margin: 16px 0;
+    text-align: center;
+    font-weight: bold;
+    color: #981B20;
+}
+
+.nouki_list li {
+    font-size: 21px;
+    line-height: 43px;
+}
+
+.nouki_list {
+    margin: 0;
+}
+
+
+.sankaku {
+    width: 0;
+    height: 0;
+    border-top: 30px solid #981B20;
+    border-right: 80px solid transparent;
+    border-bottom: 19px solid transparent;
+    border-left: 80px solid transparent;
+    margin: 0 auto;
+}
+
+.oisogi {
+    text-align: center;
+    font-size: 23px;
+    padding: 37px 0 0 0;
+}
+
+.lines-on-sides{
+    display:none;
+}
+
+#oisogi2 p {
+    clear: both;
+    text-align: right;
+    color: #981B20;
+    margin: 0 14px;
+}
+
+#oisogi2 .oomoji {
+    font-size: 30px;
+    text-align: center;
+    color: #981B20;
+    padding: 27px 0;
+    font-weight: bold;
+    margin: auto;
+}
+.toha {
+    text-align: right;
+    margin-top: -12px;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.oisogi2_list li:nth-child(3) {
+    margin: 0 0 0 29px;
+}
+.oisogi2_list li:nth-child(4) {
+    margin: 0 0 0 4px;
+}
+
+}
 
 
 /*===============================================
@@ -771,7 +1107,7 @@ h3.lines-on-sides {
 @media screen and (max-width:640px){
 
 .heading2_s, .heading2 {
-    margin: 15px 5% 20px;
+    margin: 15px 0 20px;
     font-size: 1.5em;
     text-align: left;
 }
@@ -810,7 +1146,7 @@ h3.lines-on-sides {
     cursor: pointer;
     text-align: center;
     text-decoration: none;
-    margin-left: 0;
+    margin: 0 auto;
 }
 
 .btnOrder_wrap2 #btngrn {
@@ -903,13 +1239,13 @@ h3.lines-on-sides {
 }
 
 #bigbanner {
-    margin: 10px 3%;
+    margin: -15px 3% 40px;
     width: 95%;
 }
 
 .plan_wrapper {
     clear: both;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 .heading {
@@ -917,12 +1253,11 @@ h3.lines-on-sides {
     margin: 20px 0 15px;
     padding: 0em 0em .6em;
     font-weight: bold;
-    background: #981B20;
+    background: #001D87;
     color: #fff;
     height: 45px;
     display: block;
 }
-
 
 .heading .leftdrop {
     display: none;
@@ -990,13 +1325,112 @@ h3.lines-on-sides {
 }
 
 .ong p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #981B20;
     text-align: left;
     font-weight: bold;
     line-height: 1.5;
 }
 
+.oomoji {
+    font-size: 33px;
+    text-align: center;
+    color: red;
+    padding: 30px 0;
+    font-weight: bold;
+}
+
+.oisogi2_list li:nth-child(3) {
+    margin: 0px 21px;
+}
+
+.oisogi2_list li:nth-child(4) {
+    margin: 0px 21px;
+}
+
+.oisogi2_list li p {
+    font-size: 30px;
+    color: red;
+    padding-bottom: 26px;
+    float: right;
+    margin: 15px 46px 0 0;
+    font-weight: bold;
+    /* font-size: 34px; */
+}
+
+.tyuusyaku {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.oisogi2_list li {
+    float: left;
+    color: red;
+    text-align: center;
+    font-size: 20px;
+    line-height: 29px;
+    margin: 0 auto;
+}
+
+.btnOrder_wrap #btngrn {
+    display: block;
+    width: 100%;
+    height: 54px;
+    padding: 17px 0px 20px;
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #ffffff;
+    background: #63823f;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 35px;
+}
+
+h2.heading2_otodoke {
+    padding: 0;
+    font-size: 29px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.ryoukin {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin: 19px 0;
+}
+
+.cal_date h4 {
+    font-size: 15px;
+    border-bottom: 1px dotted #000;
+    margin-bottom: 15px;
+}
+
+.big {
+    font-size: 20px;
+    line-height: 150%;
+    text-align: center;
+    margin-bottom: 11px;
+}
+
+.note {
+    font-size: 15px;
+    line-height: 22px;
+}
+
+#oisogi2 p {
+    clear: both;
+    text-align: center;
+    color: #981B20;
+}
+
+#oisogi2
+    margin-left:1%;
 }
 
 
@@ -1043,4 +1477,10 @@ h3.lines-on-sides {
     width: 100%;
     color: #fff;
     text-shadow: 1px 1px 1px #000;
+}
+#tokyuutitle {
+    margin: 0 auto;
+    padding-top: 24px;
+}
+
 }
