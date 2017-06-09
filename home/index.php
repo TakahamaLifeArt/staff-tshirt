@@ -319,6 +319,16 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				<div id="step">
 					<img src="img/top/st_step.jpg" width="100%" alt="5ステップ">
 				</div>
+				
+ 				<div id="option">
+				<h3 id="Line005">【アイテム価格改定のお知らせ】</h3>
+						<p>6月15日(木)より下記のブランドのアイテムが価格改定となります。<br>
+							「GILDAN」<br>
+							改定前に御見積りいただいた場合でも、ご注文確定が6月15日(木)以降になりますと改定後の価格となりますのでご注意くださいませ。<br>
+							※リピート注文の場合も改定後は改定価格でのご提供となりますのでご了承ください。
+						</p>
+
+				</div> 	
 
 				<div id="step_2">
 					<img src="img/top/st_step_2.jpg" width="100%" alt="5ステップsp">

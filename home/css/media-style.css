@@ -1879,6 +1879,13 @@ p.scroll_top a {
     #delivery_date_main {
         margin: 10px auto 0;
     }
+    
+    #option p {
+    font-size: 11px;
+    padding: 4px;
+}
+
+
 }
 
 /*===============================================
