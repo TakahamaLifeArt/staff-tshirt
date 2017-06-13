@@ -1279,7 +1279,7 @@ p.text{
     border: 1px solid gray;
     padding: 19px;
     font-weight: bold;
-    font-size: 21px;
+    font-size: 17px;
     background-color: #F0EDEC;
     margin: 0 0 0px;
 }
@@ -1289,6 +1289,7 @@ p.text{
     margin-top: 7px;
     line-height: 23px;
     text-align: left;
+    height: 75px;
 }
 
 .orderbtn a img:hover {
