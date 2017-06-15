@@ -796,7 +796,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 														<tr>
 															<th>アイテム</th>
 															<th>プリント位置</th>
-															<th>デザインのサイズ</th>
 															<th>デザインの色数</th>
 														</tr>
 													</thead>
