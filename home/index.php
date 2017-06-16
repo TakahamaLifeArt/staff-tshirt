@@ -190,7 +190,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<div id="example3" class="slider-pro">
 						<div class="sp-slides">
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/lineup/lineup.php">
+								<a href="http://www.staff-tshirt.com/lineup/lineup.php"onclick="ga('send','event’,'item','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_01_1.jpg" data-src="../img/top/st_main_01_1.jpg" />
 								</a>
 
@@ -214,7 +214,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/price/estimate.php">
+								<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event’,'10-estimate','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_02_2.jpg" data-src="../img/top/st_main_02_2.jpg" data-small="../img/top/st_main_02_2.jpg" data-medium="../img/top/st_main_02_2.jpg" data-large="../img/top/st_main_02_2.jpg" data-retina="../img/top/st_main_02_2.jpg" />
 								</a>
 
@@ -238,7 +238,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/contact/request.html">
+								<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event’,'request','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_03.jpg" data-src="../img/top/st_main_03.jpg" data-small="../img/top/st_main_03.jpg" data-medium="../img/top/st_main_03.jpg" data-large="../img/top/st_main_03.jpg" data-retina="../img/top/st_main_03.jpg" />
 								</a>
 
@@ -256,7 +256,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/delivery/index.php">
+								<a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event’,'nouki','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_04.jpg" data-src="../img/top/st_main_04.jpg" data-small="../img/top/st_main_04.jpg" data-medium="../img/top/st_main_04.jpg" data-large="../img/top/st_main_04.jpg" data-retina="../img/top/st_main_04.jpg" />
 								</a>
 
@@ -305,13 +305,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				<div class="next_button">
 					<ul>
 						<li>
-							<a href="http://www.staff-tshirt.com/price/estimate.php"><img src="../img/top/st_r_01.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event’,'10-estimate','click','top');"><img src="../img/top/st_r_01.jpg" width="100%"></a>
 						</li>
 						<li>
-							<a href="http://www.staff-tshirt.com/contact/request.html"><img src="../img/top/st_r_02.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event’,'request','click','top');"><img src="../img/top/st_r_02.jpg" width="100%"></a>
 						</li>
 						<li>
-							<a href="http://www.staff-tshirt.com/nagare/index.php"><img src="../img/top/st_r_03.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/nagare/index.php"onclick="ga('send','event’,'order-flow','click','top');"><img src="../img/top/st_r_03.jpg" width="100%"></a>
 						</li>
 					</ul>
 				</div>
@@ -469,15 +469,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<ul class="content">
 						<?php echo $dat; ?>
 					</ul>
-					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php">納期を詳しく見る</a></p>
+					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event’,'nouki','click','top-nouki');">納期を詳しく見る</a></p>
 				</div>
 
 				<div id="delivery_date_wrapper_2">
 					<ul class="time_plan">
-						<a href="http://www.staff-tshirt.com/order/">
+						<a href="http://www.staff-tshirt.com/order/"onclick="ga('send','event’,'order','click','top-nouki');">
 							<li class="first">お申し込み</li>
 						</a>
-						<a href="http://www.staff-tshirt.com/contact/staff_contact/">
+						<a href="http://www.staff-tshirt.com/contact/staff_contact/"onclick="ga('send','event’,'contact','click','top-nouki');">
 							<li class="second">お問い合わせ</li>
 						</a>
 					</ul>
@@ -715,13 +715,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 								<a href="/items/itemdetail.php?c=polo-shirts&i=642" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_02.jpg" width="100%" alt="ポロシャツ" onmouseover="this.src='/img/top/st_new_on_02.jpg'" onmouseout="this.src='/img/top/st_new_02.jpg'"></a>
 							</li>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=workwear&i=750" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_03.jpg" width="100%" alt="シャツ" onmouseover="this.src='/img/top/st_new_on_03.jpg'" onmouseout="this.src='/img/top/st_new_03.jpg'"></a>
+								<a href="/items/itemdetail.php?c=workwear&i=715" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_03.jpg" width="100%" alt="シャツ" onmouseover="this.src='/img/top/st_new_on_03.jpg'" onmouseout="this.src='/img/top/st_new_03.jpg'"></a>
 							</li>
 						</ul>
 					
 						<ul>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=apron&i=749" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_04.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_04.jpg'" onmouseout="this.src='/img/top/st_new_04.jpg'"></a>
+								<a href="/items/itemdetail.php?c=apron&i=81" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_04.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_04.jpg'" onmouseout="this.src='/img/top/st_new_04.jpg'"></a>
 							</li>
 							<li class="seence">
 								<a href="/items/itemdetail.php?c=outer&i=567" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_05.jpg" width="100%" alt="ブルゾン" onmouseover="this.src='/img/top/st_new_on_05.jpg'" onmouseout="this.src='/img/top/st_new_05.jpg'"></a>
