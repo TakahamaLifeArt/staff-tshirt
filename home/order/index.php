@@ -539,11 +539,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								 					<?php
 														$option = '<option value="0">---</option>
 								 						<option value="1">午前中</option>
-								 						<option value="2">12:00-14:00</option>
 								 						<option value="3">14:00-16:00</option>
 								 						<option value="4">16:00-18:00</option>
 								 						<option value="5">18:00-20:00</option>
-								 						<option value="6">20:00-21:00</option>';
+								 						<option value="6">19:00-21:00</option>';
 														$option = str_replace('value="'.$regist['options']['deliverytime'].'"', 'value="'.$regist['options']['deliverytime'].'" selected="selected"', $option);
 														echo $option;
 													?>
