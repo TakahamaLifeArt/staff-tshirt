@@ -5,11 +5,11 @@
 2014 takahama web css
 
 	File_name	: express.css
-	Description	: ãŠæ€¥ãã®æ–¹ã¸ãƒšãƒ¼ã‚¸
+	Description	: ¤ªµŞ¤®¤ÎÊı¤Ø¥Ú¡¼¥¸
 	
 	log
-	2014.09.04	: ã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³ãƒãƒŠãƒ¼
-	2014.11.12	: 2å¤§ã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³ãƒãƒŠãƒ¼
+	2014.09.04	: ¥­¥ã¥ó¥Ú¡¼¥ó¥Ğ¥Ê¡¼
+	2014.11.12	: 2Âç¥­¥ã¥ó¥Ú¡¼¥ó¥Ğ¥Ê¡¼
 	
 -------------------------------------------------------------- */
 
@@ -75,7 +75,7 @@ h1 {
 }
 
 
-/*ãŠå±Šã‘æ—¥*/
+/*¤ªÆÏ¤±Æü*/
 
 #delivery_date1 {
     border: 2px #726e6e solid;
@@ -301,7 +301,7 @@ h1 {
 	visibility:hidden;
 }
 
-/*é€šå¸¸ç´æœŸ*/
+/*ÄÌ¾ïÇ¼´ü*/
 #normalcus{
 	font-weight:bold;
 	padding:30px 10px;
@@ -329,7 +329,7 @@ h1 {
 	background-position:bottom;
 }
 
-/*ã‚¢ã‚¤ãƒ†ãƒ ä¸€è¦§*/
+/*¥¢¥¤¥Æ¥à°ìÍ÷*/
 #items{
 	padding:10px;
 }
@@ -371,7 +371,7 @@ h1 {
 	visibility:hidden;
 }
 
-/*æ™‚é–“å¤–ãƒ•ã‚©ãƒ¼ãƒ */
+/*»ş´Ö³°¥Õ¥©¡¼¥à*/
 #overtime{
 	margin-bottom:30px;
 }
@@ -452,7 +452,7 @@ a.info_icon {
 }
 
 
-/*ãƒ•ã‚©ãƒ¼ãƒ */
+/*¥Õ¥©¡¼¥à*/
 #express_table{
 	margin:0 10px;
 }
@@ -558,7 +558,7 @@ textarea.message{
 
 
 
-/*å•åˆã›*/
+/*Ìä¹ç¤»*/
 #infoll{
 	margin:60px 0;
 	background:url(/common/img/info_ll.png) no-repeat;
@@ -587,7 +587,7 @@ textarea.message{
 }
 
 
-/*è‰²ã»ã‹*/
+/*¿§¤Û¤«*/
 .red{
 	color: #FF0019;
 }
@@ -599,7 +599,7 @@ textarea.message{
 }
 
 
-/*		ãƒãƒŠãƒ¼
+/*		¥Ğ¥Ê¡¼
 ===============================================================*/
 
 .bigbanner {
@@ -617,7 +617,7 @@ textarea.message{
 }
 
 
-/* 2å¤§ã‚­ãƒ£ãƒ³ãƒšãƒ¼ãƒ³ */
+/* 2Âç¥­¥ã¥ó¥Ú¡¼¥ó */
 #nidai_campaign_banner {
 	width: 729px;
 	height: 200px;
@@ -630,7 +630,7 @@ textarea.message{
 }
 
 
-/* ç´æœŸã€€*/
+/* Ç¼´ü¡¡*/
 
 .time {
     width: 100%;
@@ -1086,7 +1086,7 @@ p.text{
 }
 
 /*tab
- * 2016-10-18 å»ƒæ­¢
+ * 2016-10-18 ÇÑ»ß
 
 .tab li {
     background: #EFE8DF;
@@ -1334,7 +1334,7 @@ p.text{
 }
 
 
-/*		è‡¨æ™‚ã®ãŠçŸ¥ã‚‰ã›
+/*		Î×»ş¤Î¤ªÃÎ¤é¤»
 ===============================================================*/
 .extra_notice {
 	margin-bottom: 30px;
@@ -1362,3 +1362,10 @@ p.text{
 	color: #c33;
 }
 
+#main .next_button li{
+	display:inline;
+}
+
+#main a{
+	display:block;
+}
