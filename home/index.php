@@ -153,21 +153,16 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 		<script src="/common2/js/tlalib.js"></script>
 		<script src="js/top1.js"></script>
 		<script src="js/home.js"></script>
-		<script>
-			(function(i, s, o, g, r, a, m) {
-				i['GoogleAnalyticsObject'] = r;
-				i[r] = i[r] || function() {
-					(i[r].q = i[r].q || []).push(arguments)
-				}, i[r].l = 1 * new Date();
-				a = s.createElement(o),
-					m = s.getElementsByTagName(o)[0];
-				a.async = 1;
-				a.src = g;
-				m.parentNode.insertBefore(a, m)
-			})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-			ga('create', 'UA-11155922-7', 'auto');
-			ga('send', 'pageview');
-		</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11155922-7', 'auto');
+  ga('send', 'pageview');
+
+</script>
 	</head>
 
 	<body>
@@ -190,7 +185,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<div id="example3" class="slider-pro">
 						<div class="sp-slides">
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/lineup/lineup.php"onclick="ga('send','event’,'item','click','slider');">
+								<a href="http://www.staff-tshirt.com/lineup/lineup.php"onclick="ga('send','event','item','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_01_1.jpg" data-src="../img/top/st_main_01_1.jpg" />
 								</a>
 
@@ -214,7 +209,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event’,'10-estimate','click','slider');">
+								<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event','10-estimate','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_02_2.jpg" data-src="../img/top/st_main_02_2.jpg" data-small="../img/top/st_main_02_2.jpg" data-medium="../img/top/st_main_02_2.jpg" data-large="../img/top/st_main_02_2.jpg" data-retina="../img/top/st_main_02_2.jpg" />
 								</a>
 
@@ -238,7 +233,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event’,'request','click','slider');">
+								<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event','request','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_03.jpg" data-src="../img/top/st_main_03.jpg" data-small="../img/top/st_main_03.jpg" data-medium="../img/top/st_main_03.jpg" data-large="../img/top/st_main_03.jpg" data-retina="../img/top/st_main_03.jpg" />
 								</a>
 
@@ -256,7 +251,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event’,'nouki','click','slider');">
+								<a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event','nouki','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_04.jpg" data-src="../img/top/st_main_04.jpg" data-small="../img/top/st_main_04.jpg" data-medium="../img/top/st_main_04.jpg" data-large="../img/top/st_main_04.jpg" data-retina="../img/top/st_main_04.jpg" />
 								</a>
 
@@ -305,16 +300,17 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				<div class="next_button">
 					<ul>
 						<li>
-							<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event’,'10-estimate','click','top');"><img src="../img/top/st_r_01.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/price/estimate.php"  onclick="ga('send','event','10-estimate','click','top');"><img src="../img/top/st_r_01.jpg" width="100%"></a>
 						</li>
 						<li>
-							<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event’,'request','click','top');"><img src="../img/top/st_r_02.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/contact/request.html" onclick="ga('send','event','request','click','top');"><img src="../img/top/st_r_02.jpg" width="100%"></a>
 						</li>
 						<li>
-							<a href="http://www.staff-tshirt.com/nagare/index.php"onclick="ga('send','event’,'order-flow','click','top');"><img src="../img/top/st_r_03.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/nagare/index.php"  onclick="ga('send','event','order-flow','click','top');"><img src="../img/top/st_r_03.jpg" width="100%"></a>
 						</li>
 					</ul>
 				</div>
+
 
 				<div id="step">
 					<img src="img/top/st_step.jpg" width="100%" alt="5ステップ">
@@ -469,15 +465,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<ul class="content">
 						<?php echo $dat; ?>
 					</ul>
-					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event’,'nouki','click','top-nouki');">納期を詳しく見る</a></p>
+					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event','nouki','click','top-nouki');">納期を詳しく見る</a></p>
 				</div>
 
 				<div id="delivery_date_wrapper_2">
 					<ul class="time_plan">
-						<a href="http://www.staff-tshirt.com/order/"onclick="ga('send','event’,'order','click','top-nouki');">
+						<a href="http://www.staff-tshirt.com/order/"onclick="ga('send','event','order','click','top-nouki');">
 							<li class="first">お申し込み</li>
 						</a>
-						<a href="http://www.staff-tshirt.com/contact/staff_contact/"onclick="ga('send','event’,'contact','click','top-nouki');">
+						<a href="http://www.staff-tshirt.com/contact/staff_contact/"onclick="ga('send','event','contact','click','top-nouki');">
 							<li class="second">お問い合わせ</li>
 						</a>
 					</ul>
@@ -595,62 +591,62 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					
 						<ul>
 							<li>
-								<a href="/lineup/lineup.php?c=t-shirts" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_tshirt.jpg" width="100%" alt="Tシャツ"></a>
+								<a href="/lineup/lineup.php?c=t-shirts" onclick="ga('send','event','t-shirts','click','top');"><img src="/img/item/st_item_tshirt.jpg" width="100%" alt="Tシャツ"></a>
 								<figcaption class="item_text">定番品から仕事着・イベント向けまで、素材や着心地にこだわったスタッフTシャツを、サイズや色数を豊富に取り揃えています。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=polo-shirts" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_poro.jpg" width="100%" alt="パーカー"></a>
+								<a href="/lineup/lineup.php?c=polo-shirts" onclick="ga('send','event','polo-shirts','click','top');"><img src="/img/item/st_item_poro.jpg" width="100%" alt="パーカー"></a>
 								<figcaption class="item_text">ポロシャツはTシャツに比べ、オフィスカジュアルとしても着用することができ、ビジネスの場面で活躍できるアイテムです。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=tote-bag" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_bag.jpg" width="100%" alt="ブルゾン・ジャンパー"></a>
+								<a href="/lineup/lineup.php?c=tote-bag" onclick="ga('send','event','tote-bag','click','top');"><img src="/img/item/st_item_bag.jpg" width="100%" alt="ブルゾン・ジャンパー"></a>
 								<figcaption class="item_text">普段でもノベルティグッズとしても使えるトートバッグは、プリント映えする無地のものから肩掛けなど豊富にご用意しております。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=sportswear" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_Sports.jpg" width="100%" alt="ポロシャツ"></a>
+								<a href="/lineup/lineup.php?c=sportswear" onclick="ga('send','event','sportswear','click','top');"><img src="/img/item/st_item_Sports.jpg" width="100%" alt="ポロシャツ"></a>
 								<figcaption class="item_text">着心地、吸汗速乾にこだわったスポーツウェアは社内での行事や地域のスポーツ大会など様々な場面で活躍します。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=sweat" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_sweat.jpg" width="100%" alt="スポーツウェア"></a>
+								<a href="/lineup/lineup.php?c=sweat" onclick="ga('send','event','sweat','click','top');"><img src="/img/item/st_item_sweat.jpg" width="100%" alt="スポーツウェア"></a>
 								<figcaption class="item_text">吸汗に優れている素材を使用しているため、部屋着や寝間着としてだけではなく、作業着としても着用できるアイテムです。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=outer" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_blouson.jpg" width="100%" alt="ロンT"></a>
+								<a href="/lineup/lineup.php?c=outer" onclick="ga('send','event','outer','click','top');"><img src="/img/item/st_item_blouson.jpg" width="100%" alt="ロンT"></a>
 								<figcaption class="item_text">ブルゾン・ジャンパーは展示会やイベントなどの多くの場面で活躍するアイテムです。種類・色数豊富に取り揃えております。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=cap" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_cap.jpg" width="100%" alt="タオル"></a>
+								<a href="/lineup/lineup.php?c=cap" onclick="ga('send','event','cap','click','top');"><img src="/img/item/st_item_cap.jpg" width="100%" alt="タオル"></a>
 								<figcaption class="item_text">スタッフTシャツ屋では、サンバイザーやワークキャップなど幅広くご用意しております。ワンポイントとして人気の高いアイテム。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=long-shirts" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_lont.jpg" width="100%" alt="トートバッグ"></a>
+								<a href="/lineup/lineup.php?c=long-shirts" onclick="ga('send','event','long-shirts','click','top');"><img src="/img/item/st_item_lont.jpg" width="100%" alt="トートバッグ"></a>
 								<figcaption class="item_text">ロングTシャツはフルシーズンで活躍する人気の高いアイテムです。7分袖やラグランTシャツなど数多くご用意しました。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=towel" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_towel.jpg" width="100%" alt="エプロン"></a>
+								<a href="/lineup/lineup.php?c=towel" onclick="ga('send','event','towel','click','top');"><img src="/img/item/st_item_towel.jpg" width="100%" alt="エプロン"></a>
 								<figcaption class="item_text">ハンドタオルからバスタオルまで、スポーツイベントなどでは欠かせないタオルをお手軽に作成できます。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=apron" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_apron.jpg" width="100%" alt="つなぎ"></a>
+								<a href="/lineup/lineup.php?c=apron" onclick="ga('send','event','apron','click','top');"><img src="/img/item/st_item_apron.jpg" width="100%" alt="つなぎ"></a>
 								<figcaption class="item_text">飲食店のユニフォームとしてお店の雰囲気にぴったり合ったオリジナルエプロンを作ることができます。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=overall" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_tsunagi.jpg" width="100%" alt="ワークウェア"></a>
+								<a href="/lineup/lineup.php?c=overall" onclick="ga('send','event','overall','click','top');"><img src="/img/item/st_item_tsunagi.jpg" width="100%" alt="ワークウェア"></a>
 								<figcaption class="item_text">職場の仲間と作業服としても使えるオリジナルつなぎはいかがですか？夏場でも快適な半袖つなぎもご用意しております。
 								</figcaption>
 							</li>
 							<li>
-								<a href="/lineup/lineup.php?c=workwear" onclick="ga('send','event’,'contact','click','head');"><img src="/img/item/st_item_work.jpg" width="100%" alt="キャップ"></a>
+								<a href="/lineup/lineup.php?c=workwear" onclick="ga('send','event','workwear','click','top');"><img src="/img/item/st_item_work.jpg" width="100%" alt="キャップ"></a>
 								<figcaption class="item_text">抗菌防臭機能付きの上品な仕上がりのオックスフォードシャツや、チノパンなど、働きやすい着心地にこだわった商品を取り揃えております。
 								</figcaption>
 							</li>
@@ -667,17 +663,17 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 						<ul>
 							<li class="seence">
 								<p class="youto_ttl">イベント</p>
-								<a href="/scene/event.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_event.jpg" width="100%" alt="イベント"></a>
+								<a href="/scene/event.html" onclick="ga('send','event','event','click','top');"><img src="/img/top/st_use_event.jpg" width="100%" alt="イベント"></a>
 							</li>
 
 							<li class="seence">
 								<p class="youto_ttl">介護福祉</p>
-								<a href="/scene/care.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_medical.jpg" width="100%" alt="介護福祉"></a>
+								<a href="/scene/care.html" onclick="ga('send','event','care','click','top');"><img src="/img/top/st_use_medical.jpg" width="100%" alt="介護福祉"></a>
 							</li>
 
 							<li class="seence">
 								<p class="youto_ttl">ボランティア</p>
-								<a href="/scene/volunteer.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_volunteer.jpg" width="100%" alt="ボランティア"></a>
+								<a href="/scene/volunteer.html" onclick="ga('send','event','volunteer','click','top');"><img src="/img/top/st_use_volunteer.jpg" width="100%" alt="ボランティア"></a>
 							</li>
 
 						</ul>
@@ -685,15 +681,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 						<ul>
 							<li class="seence">
 								<p class="youto_ttl">フードユニフォーム</p>
-								<a href="/scene/food.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_food.jpg" width="100%" alt="フード"></a>
+								<a href="/scene/food.html" onclick="ga('send','event','food','click','top');"><img src="/img/top/st_use_food.jpg" width="100%" alt="フード"></a>
 							</li>
 							<li class="seence">
 								<p class="youto_ttl">ワークウェア</p>
-								<a href="/scene/work.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_work.jpg" width="100%" alt="ワーク"></a>
+								<a href="/scene/work.html" onclick="ga('send','event','work','click','top');"><img src="/img/top/st_use_work.jpg" width="100%" alt="ワーク"></a>
 							</li>
 							<li class="seence">
 								<p class="youto_ttl">グッズ</p>
-								<a href="/scene/goods.html" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_use_goods.jpg" width="100%" alt="グッズ"></a>
+								<a href="/scene/goods.html" onclick="ga('send','event','goods','click','top');"><img src="/img/top/st_use_goods.jpg" width="100%" alt="グッズ"></a>
 							</li>
 
 						</ul>
@@ -709,25 +705,25 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					
 						<ul>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=t-shirts&i=655" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_01.jpg" width="100%" alt="Tシャツ" onmouseover="this.src='/img/top/st_new_on_01.jpg'" onmouseout="this.src='/img/top/st_new_01.jpg'"></a>
+								<a href="/items/itemdetail.php?c=t-shirts&i=655" onclick="ga('send','event','new1','click','top');"><img src="/img/top/st_new_01.jpg" width="100%" alt="Tシャツ" onmouseover="this.src='/img/top/st_new_on_01.jpg'" onmouseout="this.src='/img/top/st_new_01.jpg'"></a>
 							</li>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=polo-shirts&i=642" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_02.jpg" width="100%" alt="ポロシャツ" onmouseover="this.src='/img/top/st_new_on_02.jpg'" onmouseout="this.src='/img/top/st_new_02.jpg'"></a>
+								<a href="/items/itemdetail.php?c=polo-shirts&i=642" onclick="ga('send','event','new2','click','top');"><img src="/img/top/st_new_02.jpg" width="100%" alt="ポロシャツ" onmouseover="this.src='/img/top/st_new_on_02.jpg'" onmouseout="this.src='/img/top/st_new_02.jpg'"></a>
 							</li>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=workwear&i=715" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_03.jpg" width="100%" alt="シャツ" onmouseover="this.src='/img/top/st_new_on_03.jpg'" onmouseout="this.src='/img/top/st_new_03.jpg'"></a>
+								<a href="/items/itemdetail.php?c=workwear&i=715" onclick="ga('send','event','new3','click','top');"><img src="/img/top/st_new_03.jpg" width="100%" alt="シャツ" onmouseover="this.src='/img/top/st_new_on_03.jpg'" onmouseout="this.src='/img/top/st_new_03.jpg'"></a>
 							</li>
 						</ul>
 					
 						<ul>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=apron&i=81" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_04.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_04.jpg'" onmouseout="this.src='/img/top/st_new_04.jpg'"></a>
+								<a href="/items/itemdetail.php?c=apron&i=81" onclick="ga('send','event','new4','click','top');"><img src="/img/top/st_new_04.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_04.jpg'" onmouseout="this.src='/img/top/st_new_04.jpg'"></a>
 							</li>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=outer&i=567" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_05.jpg" width="100%" alt="ブルゾン" onmouseover="this.src='/img/top/st_new_on_05.jpg'" onmouseout="this.src='/img/top/st_new_05.jpg'"></a>
+								<a href="/items/itemdetail.php?c=outer&i=567" onclick="ga('send','event','new5','click','top');"><img src="/img/top/st_new_05.jpg" width="100%" alt="ブルゾン" onmouseover="this.src='/img/top/st_new_on_05.jpg'" onmouseout="this.src='/img/top/st_new_05.jpg'"></a>
 							</li>
 							<li class="seence">
-								<a href="/items/itemdetail.php?c=apron&i=580" onclick="ga('send','event’,'contact','click','head');"><img src="/img/top/st_new_06.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_06.jpg'" onmouseout="this.src='/img/top/st_new_06.jpg'"></a>
+								<a href="/items/itemdetail.php?c=apron&i=580" onclick="ga('send','event','new6','click','top');"><img src="/img/top/st_new_06.jpg" width="100%" alt="エプロン" onmouseover="this.src='/img/top/st_new_on_06.jpg'" onmouseout="this.src='/img/top/st_new_06.jpg'"></a>
 							</li>
 						</ul>
 					</div>
@@ -762,7 +758,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 						<div class="topdescrip topdescrip1">
 							<div class="leftimg logo"><img src="img/top/st_seo_logo.jpg" width="100%" alt="スタッフTシャツ屋"></div>
 							<div class="topdescrip_content">
-								<h4>スタッフ様ユニフォームはスタッフTシャツ屋にお任せ！</h4>
+								<h4>スタッフ用ユニフォームはスタッフTシャツ屋にお任せ！</h4>
 								<p>スタッフTシャツが最短当日の短納期で印刷できます！スタッフTシャツ・ポロシャツ・パーカー・ ブルゾン・トートバッグ等の作成は早い・激安・高品質のタカハマライフアートへ。 企業、お店、イベントのイメージアップに役立ちます。一流アパレル技術の東京の自社工場でプリント方法もいろいろ選べます。 1枚からスタッフTシャツ、イベントTシャツなど 大口注文まで、納期、価格等ご相談に応じます。</p>
 
 							
