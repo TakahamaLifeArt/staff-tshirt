@@ -784,6 +784,7 @@ p.scroll_top a {
 	float: right;
 }
 
+
 .orderbtn li {
     float: left;
     margin: 0px 8px 35px 8px;
@@ -799,6 +800,12 @@ p.scroll_top a {
     padding: 11% 3%;
     width: 45%;
 }
+    
+    .topdescrip .leftimg.logo_2 {
+        padding: 0%;
+        width: 45%;
+        display: inline-block;
+    }
 
 }
 
