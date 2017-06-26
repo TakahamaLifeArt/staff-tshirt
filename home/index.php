@@ -181,7 +181,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 
 		<div id="mainwrap">
 			<section id="main">
-				<div id="mainvisual">
+                <div id="mainvisual" style="width:75%; float:left;">
 					<div id="example3" class="slider-pro">
 						<div class="sp-slides">
 							<div class="sp-slide">
@@ -316,7 +316,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<img src="img/top/st_step.jpg" width="100%" alt="5ステップ">
 				</div>
 				
- 				<div id="option">
+ 		<!--		<div id="option">
 				<h3 id="Line005">【アイテム価格改定のお知らせ】</h3>
 						<p>6月22日(木)より下記のブランドのアイテムが価格改定となります。<br>
 							「GILDAN」<br>
@@ -324,7 +324,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							※リピート注文の場合も改定後は改定価格でのご提供となりますのでご了承ください。
 						</p>
 
-				</div> 	
+				</div> 	 -->
 
 				<div id="step_2">
 					<img src="img/top/st_step_2.jpg" width="100%" alt="5ステップsp">
