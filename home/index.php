@@ -153,16 +153,16 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 		<script src="/common2/js/tlalib.js"></script>
 		<script src="js/top1.js"></script>
 		<script src="js/home.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-11155922-7', 'auto');
-  ga('send', 'pageview');
+			ga('create', 'UA-11155922-7', 'auto');
+			ga('send', 'pageview');
 
-</script>
+		</script>
 	</head>
 
 	<body>
@@ -181,11 +181,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 
 		<div id="mainwrap">
 			<section id="main">
-				<div id="mainvisual">
+                <div id="mainvisual" style="width:75%; float:left;">
 					<div id="example3" class="slider-pro">
 						<div class="sp-slides">
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/lineup/lineup.php" onclick="ga('send','event','item','click','slider');">
+								<a href="http://www.staff-tshirt.com/lineup/lineup.php"onclick="ga('send','event','item','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_01_1.jpg" data-src="../img/top/st_main_01_1.jpg" />
 								</a>
 
@@ -209,7 +209,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/price/estimate.php" onclick="ga('send','event','10-estimate','click','slider');">
+								<a href="http://www.staff-tshirt.com/price/estimate.php"onclick="ga('send','event','10-estimate','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_02_2.jpg" data-src="../img/top/st_main_02_2.jpg" data-small="../img/top/st_main_02_2.jpg" data-medium="../img/top/st_main_02_2.jpg" data-large="../img/top/st_main_02_2.jpg" data-retina="../img/top/st_main_02_2.jpg" />
 								</a>
 
@@ -233,7 +233,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/contact/request.html" onclick="ga('send','event','request','click','slider');">
+								<a href="http://www.staff-tshirt.com/contact/request.html"onclick="ga('send','event','request','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_03.jpg" data-src="../img/top/st_main_03.jpg" data-small="../img/top/st_main_03.jpg" data-medium="../img/top/st_main_03.jpg" data-large="../img/top/st_main_03.jpg" data-retina="../img/top/st_main_03.jpg" />
 								</a>
 
@@ -251,7 +251,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							</div>
 
 							<div class="sp-slide">
-								<a href="http://www.staff-tshirt.com/delivery/index.php" onclick="ga('send','event','nouki','click','slider');">
+								<a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event','nouki','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_04.jpg" data-src="../img/top/st_main_04.jpg" data-small="../img/top/st_main_04.jpg" data-medium="../img/top/st_main_04.jpg" data-large="../img/top/st_main_04.jpg" data-retina="../img/top/st_main_04.jpg" />
 								</a>
 
@@ -300,13 +300,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				<div class="next_button">
 					<ul>
 						<li>
-							<a href="http://www.staff-tshirt.com/price/estimate.php" onclick="ga('send','event','10-estimate','click','top');"><img src="../img/top/st_r_01.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/price/estimate.php"  onclick="ga('send','event','10-estimate','click','top');"><img src="../img/top/st_r_01.jpg" width="100%"></a>
 						</li>
 						<li>
 							<a href="http://www.staff-tshirt.com/contact/request.html" onclick="ga('send','event','request','click','top');"><img src="../img/top/st_r_02.jpg" width="100%"></a>
 						</li>
 						<li>
-							<a href="http://www.staff-tshirt.com/nagare/index.php" onclick="ga('send','event','order-flow','click','top');"><img src="../img/top/st_r_03.jpg" width="100%"></a>
+							<a href="http://www.staff-tshirt.com/nagare/index.php"  onclick="ga('send','event','order-flow','click','top');"><img src="../img/top/st_r_03.jpg" width="100%"></a>
 						</li>
 					</ul>
 				</div>
@@ -316,7 +316,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<img src="img/top/st_step.jpg" width="100%" alt="5ステップ">
 				</div>
 				
- 				<div id="option">
+ 		<!--		<div id="option">
 				<h3 id="Line005">【アイテム価格改定のお知らせ】</h3>
 						<p>6月22日(木)より下記のブランドのアイテムが価格改定となります。<br>
 							「GILDAN」<br>
@@ -324,7 +324,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 							※リピート注文の場合も改定後は改定価格でのご提供となりますのでご了承ください。
 						</p>
 
-				</div> 	
+				</div> 	 -->
 
 				<div id="step_2">
 					<img src="img/top/st_step_2.jpg" width="100%" alt="5ステップsp">
@@ -465,15 +465,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<ul class="content">
 						<?php echo $dat; ?>
 					</ul>
-					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php" onclick="ga('send','event','nouki','click','top-nouki');">納期を詳しく見る</a></p>
+					<p class="nouki_button_2"><a href="http://www.staff-tshirt.com/delivery/index.php"onclick="ga('send','event','nouki','click','top-nouki');">納期を詳しく見る</a></p>
 				</div>
 
 				<div id="delivery_date_wrapper_2">
 					<ul class="time_plan">
-						<a href="http://www.staff-tshirt.com/order/" onclick="ga('send','event','order','click','top-nouki');">
+						<a href="http://www.staff-tshirt.com/order/"onclick="ga('send','event','order','click','top-nouki');">
 							<li class="first">お申し込み</li>
 						</a>
-						<a href="http://www.staff-tshirt.com/contact/staff_contact/" onclick="ga('send','event','contact','click','top-nouki');">
+						<a href="http://www.staff-tshirt.com/contact/staff_contact/"onclick="ga('send','event','contact','click','top-nouki');">
 							<li class="second">お問い合わせ</li>
 						</a>
 					</ul>
