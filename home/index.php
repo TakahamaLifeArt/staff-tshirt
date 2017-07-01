@@ -188,78 +188,24 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 								<a href="http://www.staff-tshirt.com/lineup/lineup.php" onclick="ga('send','event','item','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_01_1.jpg" data-src="../img/top/st_main_01_1.jpg" />
 								</a>
-
-								<!-- <p class="sp-layer sp-white sp-padding"
-					data-horizontal="50" data-vertical="50"
-					data-show-transition="left" data-show-delay="400">
-					Lorem ipsum
-				</p> 
-
-				<p class="sp-layer sp-black sp-padding"
-					data-horizontal="180" data-vertical="50"
-					data-show-transition="left" data-show-delay="600">
-					dolor sit amet
-				</p>
-
-				<p class="sp-layer sp-white sp-padding"
-					data-horizontal="315" data-vertical="50"
-					data-show-transition="left" data-show-delay="800">
-					consectetur adipisicing elit.
-				</p> -->
 							</div>
 
 							<div class="sp-slide">
 								<a href="http://www.staff-tshirt.com/price/estimate.php" onclick="ga('send','event','10-estimate','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_02_2.jpg" data-src="../img/top/st_main_02_2.jpg" data-small="../img/top/st_main_02_2.jpg" data-medium="../img/top/st_main_02_2.jpg" data-large="../img/top/st_main_02_2.jpg" data-retina="../img/top/st_main_02_2.jpg" />
 								</a>
-
-								<!-- <h3 class="sp-layer sp-black sp-padding" 
-					data-horizontal="40" data-vertical="40" 
-					data-show-transition="left">
-					Lorem ipsum dolor sit amet
-				</h3>
-
-				<p class="sp-layer sp-white sp-padding" 
-					data-horizontal="40" data-vertical="100" 
-					data-show-transition="left" data-show-delay="200">
-					consectetur adipisicing elit
-				</p> 
-
-				<p class="sp-layer sp-black sp-padding" 
-					data-horizontal="40" data-vertical="160" data-width="350" 
-					data-show-transition="left" data-show-delay="400">
-					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				</p>  -->
 							</div>
 
 							<div class="sp-slide">
 								<a href="http://www.staff-tshirt.com/contact/request.html" onclick="ga('send','event','request','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_03.jpg" data-src="../img/top/st_main_03.jpg" data-small="../img/top/st_main_03.jpg" data-medium="../img/top/st_main_03.jpg" data-large="../img/top/st_main_03.jpg" data-retina="../img/top/st_main_03.jpg" />
 								</a>
-
-								<!--  <p class="sp-layer sp-white sp-padding" 
-					data-position="centerCenter" data-vertical="-50" 
-					data-show-transition="right" data-show-delay="500" >
-					Lorem ipsum dolor sit amet
-				</p>
-
-				<p class="sp-layer sp-black sp-padding" 
-					data-position="centerCenter" data-vertical="50" 
-					data-show-transition="left" data-show-delay="700">
-					consectetur adipisicing elit
-				</p>  -->
 							</div>
 
 							<div class="sp-slide">
 								<a href="http://www.staff-tshirt.com/delivery/index.php" onclick="ga('send','event','nouki','click','slider');">
 									<img class="sp-image" src="../img/top/st_main_04.jpg" data-src="../img/top/st_main_04.jpg" data-small="../img/top/st_main_04.jpg" data-medium="../img/top/st_main_04.jpg" data-large="../img/top/st_main_04.jpg" data-retina="../img/top/st_main_04.jpg" />
 								</a>
-
-								<!--  <p class="sp-layer sp-black sp-padding"
-					data-position="bottomLeft" data-vertical="0" data-width="100%"
-					data-show-transition="up">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-				</p>  -->
 							</div>
 
 						</div>
@@ -272,30 +218,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 						</div>
 					</div>
 				</div>
-
-
-
-
-				<!--<div class="blockclntent">
-	
-		<div id="plans">
-			<div>
-				<img src="/img/top/st_day.jpg">
-				<div id="plandays">
-					<div></div>
-					<div><p><?php echo $deliDate[0];?></p></div>
-					<div><p><?php echo $deliDate[1];?></p></div>
-				</div>
-			</div>
-			<p class="btnred"><a href="/delivery/index.php">他の日付で調べる</a></p>
-		</div> -->
-
-				<!--<div id="flowimg" class="content-lv3">
-			<a href="/price/estimate.php"><img src="img/top/st_estimate.jpg" width="100%"  alt="10秒見積もり"></a>
-		</div> -->
-
-
-
 
 				<div class="next_button">
 					<ul>
@@ -316,21 +238,30 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 					<img src="img/top/st_step.jpg" width="100%" alt="5ステップ">
 				</div>
 				
- 		<!--		<div id="option">
-				<h3 id="Line005">【アイテム価格改定のお知らせ】</h3>
-						<p>6月22日(木)より下記のブランドのアイテムが価格改定となります。<br>
-							「GILDAN」<br>
-							改定前に御見積りいただいた場合でも、ご注文確定が6月22日(木)以降になりますと改定後の価格となりますのでご注意くださいませ。<br>
-							※リピート注文の場合も改定後は改定価格でのご提供となりますのでご了承ください。
-						</p>
-
-				</div> 	 -->
+				<?php
+				if (!empty(_EXTRA_NOTICE) || !empty(_NOTICE_HOLIDAY)) {
+					echo '<div id="option">';
+					if (!empty(_NOTICE_HOLIDAY)) {
+						$txt = explode(PHP_EOL, _NOTICE_HOLIDAY);
+						echo '<h3 id="Line005">'.$txt[0].'</h3>';
+						$message = str_replace($txt[0].PHP_EOL, '', _NOTICE_HOLIDAY);
+						echo '<p>'.nl2br($message).'</p>';
+					}
+					if (!empty(_EXTRA_NOTICE)) {
+						$txt = explode(PHP_EOL, _EXTRA_NOTICE);
+						echo '<h3 id="Line005">'.$txt[0].'</h3>';
+						$message = str_replace($txt[0].PHP_EOL, '', _EXTRA_NOTICE);
+						echo '<p>'.nl2br($message).'</p>';
+					}
+					echo '</div>';
+				}
+				?>
 
 				<div id="step_2">
 					<img src="img/top/st_step_2.jpg" width="100%" alt="5ステップsp">
 				</div>
 
-			<div id="delivery_date_main">
+				<div id="delivery_date_main">
 				<img src="../img/top/st_nouki_main.jpg" width="100%" id="deri_topttl">
 				<p class="nouki_title">面倒な納期計算がワンクリックで自動計算！</p>
 				<p class="nouki_button">
@@ -480,108 +411,6 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/../cgi-bin/jd/japaneseDate.php';
 				</div>
 				
 			</div>
-
-
-
-				<!--<div id="delivery_date1">
-                    <p class="txt1">今すぐ
-                        <span class="red">注文確定</span>した場合の<span class="red">お届け日</span>
-                    </p>
-                    
-                       <div class="time">
-	                    <ul class="box_time" style="height: 202px">
-		                    <li class="block1">
-			                    <section class="round1">
-			                    <div class="block_sq">
-			                     <p class="text"><span class=red>当日</span><br>特急</p>
-			                     
-			                    </div>
-			                    <div class="block_sq1">
-			                    <div class="block_sq2">
-			                    <div class="block_sq2">
-					                    <table class="bk_table" style="width:130px">
-											<tr id="result_date4">
-												<td class="dt"><p><span class="mm"><?php echo $main_month[0]; ?></span></p>
-												<td style="width: 15px">/</td>
-												<td class="dt"><p><?php echo $main_day[0]; ?></span></p></td>
-											</tr>
-										</table>
-			                    	</div>
-			                    </div>
-			                    </div>
-		                    	</section>
-		                    </li>
-		                    <li class="block1">
-			                    <section class="round2">
-			                    <div class="block_sq">
-			                     <p class="text"><span class=red>翌日</span><br>仕上げ</p>
-			                    </div>
-			                    <div class="block_sq1">
-			                    	<div class="block_sq2">
-					                    <table class="bk_table" style="width:130px">
-											<tr id="result_date3">
-												<td class="dt"><p><span class="mm"><?php echo $main_month[1]; ?></span></p></td>
-												<td style="width: 15px">/</td>
-												<td class="dt"><p><span class="dd"><?php echo $main_day[1]; ?></span></p></td>
-											</tr>
-										</table>
-			                    	</div>
-			                    </div>
-		                    	</section>
-	                    		</li>
-								<li class="block1">
-			                    <section class="round3">
-			                    <div class="block_sq">
-			                    <p class="text"><span class=red>2日</span><br>仕上げ</p>
-			                    </div>
-			                    <div class="block_sq1">
-			                    	<div class="block_sq2">
-			                    <div class="block_sq2">
-					                    <table class="bk_table" style="width:130px">
-											<tr id="result_date2">
-												<td class="dt"><p><span class="mm"><?php echo $main_month[2]; ?></span></p></td>
-												<td style="width: 15px">/</td>
-												<td class="dt"><p><span class="dd"><?php echo $main_day[2]; ?></span></p></td>
-											</tr>
-										</table>
-			                    	</div>
-			                    </div>
-			                    </div>
-		                    	</section>
-	                    		</li>
-								<li class="block1">
-			                    <section class="round4">
-			                    <div class="block_sq">
-			                    <p class="text">通常<span class=red>3日</span><br>仕上げ</p>
-			                    </div>
-			                    <div class="block_sq1">
-			                    	<div class="block_sq2">
-			                    	<table class="bk_table" style="width:130px">
-											<tr id="result_date">
-												<td class="dt"><p class="date"><?php echo $fin['Month'];?></p></td>
-												<td style="width: 15px">/</td>
-												<td class="dt"><p class="date"><?php echo $fin['Day'];?></p></td>
-											</tr>
-										</table>
-			                    </div>
-			                    </div>
-		                    	</section>
-	                    		</li>
-	                    </ul>
-		            </div>
-  							 <section>
-			                    <table class="box_time">
-									<tr>
-										<td class="sp" style="width: 140px; height: 42px;"><p class="nouki">注文〆12時まで</p></td>
-										<td class="sp1" style="height: 42px"></td>
-										<td class="sp2" style="height: 42px"><p class="nouki">注文〆13時まで</p></td>
-									</tr>
-								</table>
-								          <div class="block_sq">
-			                    <p class="text"><span class=red>※</span>通常3日仕上げ以外のプランは特急料金がかかります。</p>	
-			                    		                    </div>
-							</section>	-->
-
 				<div class="content-lv3">
 					<div class="orderbtn">
 					
