@@ -8,9 +8,10 @@
 .slider-pro {
     position: relative;
     -moz-box-sizing: content-box;
-    box-sizing: content-box
+    box-sizing: content-box;
+    width: 75%;
+    display: inline-block;
 }
-
 .sp-slides-container {
     position: relative;
 
@@ -31,11 +32,13 @@
     position: absolute;
 }
 
+/*
 .sp-image-container {
     overflow: hidden;
     width: 735px;
     height:300px;
 }
+*/
 
 .sp-image {
     position: relative;
@@ -59,8 +62,7 @@
 }
 
 .sp-bottom-thumbnails, .sp-top-thumbnails {
-    left: -45px;
-    /* margin: 0 auto; */
+    margin: 5px auto;
 }
 
 .sp-top-thumbnails {
@@ -69,9 +71,11 @@
     margin-bottom: 4px
 }
 
+/*
 .sp-bottom-thumbnails {
     margin: 7px 0;
 }
+*/
 
 .sp-left-thumbnails,
 .sp-right-thumbnails {
@@ -383,6 +387,12 @@
 
 .sp-selected-button {
     background-color: #000
+}
+
+@media only screen and (max-width:984px) {
+    .next_button {
+        display: none;
+    }
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
