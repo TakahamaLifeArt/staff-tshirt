@@ -201,7 +201,7 @@ $(function(){
 				var select = self.find('select');
 				var idx = select.attr('class').split('_')[1];
 				var ink_count = select.val();
-				var pos_name = self.find('posname_'+idx).text();
+				var pos_name = self.find('.posname_'+idx).text();
 				if(ink_count==0) return true;		// continue
 				for(var itemId in $.items.hash){
 					if($.items.hash[itemId][5]!=ppID) continue;
@@ -229,6 +229,7 @@ $(function(){
 				var costIndex = 2;	// 白色
 				if(optionValue!=0) costIndex = 3;	// 白色以外
 				jQuery.each(r, function(key, val){
+					if (val.printfee==0) return true;
 					r[key]['row'] = $.items.hash[val.itemid][4]-0;
 					r[key]['base'] = ($.items.hash[val.itemid][costIndex]-0)*vol + (val.printfee-0);
 				});
