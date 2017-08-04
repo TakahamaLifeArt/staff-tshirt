@@ -645,6 +645,7 @@ class Ordermail extends Conndb{
 		$idx6 = 0;
 		$idx7 = 0;
 		$idx8 = 0;
+		$origin = 1;
 		foreach($items as $catid=>$v1){
 			foreach($v1['item'] as $itemid=>$v2){
 				$posid = $v2['posid'];
@@ -661,22 +662,19 @@ class Ordermail extends Conndb{
 						array_push($data4, $tempData4);
 					}
 				}
+				
 				foreach($v2['design'] as $base=>$a2){
+					if ($idx7>0) $origin = 0;
 					for($i=0; $i<count($a2); $i++){
 						if ($a2[$i]['ink']==0 && $opts['noprint']==0) continue;
 						if ($opts['noprint']==1 && $i>0) continue;
 						if (empty($a2[$i]['areakey']) || empty($a2[$i]['categorytype']) || empty($a2[$i]['itemtype'])) continue;
-						if (empty($a2[$i]['printing'])) continue;
 						$sizeFrom = $a2[$i]['printing']!='silk'? 0: 35;
 						$sizeTo = $a2[$i]['printing']!='silk'? 0: 27;
 						$areasize = 0;	// 大で固定
 						$ink = 0;
 						if ($a2[$i]['printing']=='silk') {
 							$ink = $a2[$i]['ink']==9 ? "4" : $a2[$i]['ink'];
-						}
-						$origin = "1";
-						if ($i>0) {
-							$origin = "0";
 						}
 						$tempData7 = "0|".$idx6."|". $a2[$i]['areakey']."|".$a2[$i]['categorytype']."/".$a2[$i]['itemtype']."|".$origin."|".$ink."|".$a2[$i]['printing']."|".$sizeFrom."|".$sizeTo."|".$areasize."|0|0|1|".(empty($opts['illust'])? "": "イラレ")."||0|1";
 						array_push($orderarea , $tempData7);
