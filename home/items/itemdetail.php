@@ -348,15 +348,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			var _ITEM_NAME = '<?php echo $item_name; ?>';
 			var _POS_ID = <?php echo $posid; ?>;
 			$(function($) {
-				var nav    = $('.fixed'),
-					offset = nav.offset();
-				$(window).scroll(function () {
-					if($(window).scrollTop() > offset.top) {
-						nav.addClass('fixed');
-					} else {
-						nav.removeClass('fixed');
-					}
-				});
+//				var nav    = $('.fixed'),
+//					offset = nav.offset();
+//				$(window).scroll(function () {
+//					if($(window).scrollTop() > offset.top) {
+//						nav.addClass('fixed');
+//					} else {
+//						nav.removeClass('fixed');
+//					}
+//				});
 				/*globalnav*/
 				$(".flexnav").flexNav();
 			});

@@ -4,6 +4,7 @@
 *	charset utf-8
 *	log
 *	2016-10-26 Staff-tshirtの商品詳細ページ用
+*	2017-11-09 プリント位置指定のレイアウト変更に伴い絵型面の指定箇所を変更
 */
 
 $(function(){
@@ -166,7 +167,7 @@ $(function(){
 			if(arguments.length>0) $.msgbox(arguments[0]);
 		},
 		addOrder: function(){
-			/*
+		/*
 		*	見積計算のハッシュを生成する
 		*	@arguments　false: 枚数のチェックを行なわない
 		*/
@@ -200,8 +201,11 @@ $(function(){
 
 			a = 0;
 			$('#pos_wrap select').each( function(){
-				var ink = $(this).val()-0;
-				var posname = $(this).parent().prev().text();
+				var self = $(this);
+				var idx = self.attr('class').split('_');
+				var ink = self.val()-0;
+//				var posname = $(this).parent().prev().text();
+				var posname = self.closest('.psnv').find('.posname_'+idx[1]).text();
 				if(ink>0){
 					posi[a] = posname;
 					inks[a] = ink;
@@ -247,7 +251,7 @@ $(function(){
 			*/
 			var tmpVol = 0;
 			var presize = 0;
-			var itemsum = 0;			
+			var itemsum = 0;
 			for(var i=0; i<$.printparam.itemid.length; i++){
 				vol = $.printparam.amount[i]-0;
 				if(i==0){
