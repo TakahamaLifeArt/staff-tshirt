@@ -1519,7 +1519,7 @@ if(isset($_REQUEST['act'])){
 				$base_name = $v['img'][$i]['base_name'];
 				$posname_key = basename($v['img'][$i]['filename'], '.txt');
 				$imgfile = file_get_contents($v['img'][$i]['filename']);
-				$f = preg_replace('/.\/img/', _IMG_PSS, $imgfile);
+				$f = preg_replace('/\.\/img/', _IMG_PSS, $imgfile);
 				$res .= '<div class="ppid_'.$posid.'">';
 				
 				$tmp = explode('/>', $f);

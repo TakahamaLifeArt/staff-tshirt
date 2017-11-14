@@ -353,7 +353,7 @@ class ItemInfo extends Conndb {
 		foreach($this->silhouetteId[$id] as $ppid=>$val){
 			$files = parent::positionFor($ppid, 'pos');
 			$imgfile = $this->deleteBom(file_get_contents($files[0]['filename']));
-			$f = preg_replace('/.\/img\//', _IMG_PSS, $imgfile);
+			$f = preg_replace('/\.\/img\//', _IMG_PSS, $imgfile);
 			preg_match('/<img (.*?)>/', $f, $match);
 			$pos .= '<div class="box">';
 				$pos .= '<div class="body_type">';
@@ -388,7 +388,7 @@ class ItemInfo extends Conndb {
 		
 		for($i=0; $i<count($files); $i++){
 			$imgfile = $this->deleteBom(file_get_contents($files[$i]['filename']));
-			$f = preg_replace('/.\/img\//', _IMG_PSS, $imgfile);
+			$f = preg_replace('/\.\/img\//', _IMG_PSS, $imgfile);
 			$pos .= '<li class="pntposition">';
 				$pos .= '<div class="psnv">';
 				$pos .= '<div class="pnttxt"><p class="posname_'.$i.'"></p></div>';
